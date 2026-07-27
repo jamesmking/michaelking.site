@@ -1,0 +1,16 @@
+<footer class="footer">
+  <div class="footer__col">
+    <h2 class="footer__head">Getting it to you</h2>
+    <p>Posted flat-packed or rolled in a rigid tube, tracked, {{ site.shipping.standard | money }} anywhere in the UK.</p>
+    <p><strong>Free local delivery or collection</strong> in {{ site.localArea }} — postcodes {{ site.localPostcodes | join(", ") }}. Choose it at checkout and nothing is added to your total.</p>
+  </div>
+
+  <div class="footer__col">
+    <h2 class="footer__head">Get in touch</h2>
+    <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    {% if site.phone %}<p><a href="tel:{{ site.phone | replace(" ", "") }}">{{ site.phone }}</a></p>{% endif %}
+    <p class="footer__fine">Every print is made in small runs, so once a design sells out it may not come back.</p>
+  </div>
+
+  <p class="footer__legal">© {{ site.year }} {{ site.name }}. Prints are original works and not affiliated with any studio or label.</p>
+</footer>

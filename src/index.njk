@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: false
+description: Original screenprinted film and music posters, made in runs of three.
+---
+{% from "partials/print-card.njk" import card %}
+
+<section class="hero">
+  <h1 class="hero__title">
+    Posters for the <span class="hero__ink hero__ink--film">films</span>
+    and <span class="hero__ink hero__ink--music">records</span>
+    you keep going back to.
+  </h1>
+  <p class="hero__actions">
+    <a class="btn btn--film" href="/film/">Film prints</a>
+    <a class="btn btn--music" href="/music/">Music prints</a>
+  </p>
+</section>
+
+<section class="strip">
+  <h2 class="strip__head">On the shelf right now</h2>
+  <div class="grid">
+    {% for print in prints | inStock %}
+      {{ card(print, stock) }}
+    {% endfor %}
+  </div>
+  <p class="strip__more"><a href="/prints/">See the full catalogue →</a></p>
+</section>

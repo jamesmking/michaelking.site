@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+title: About
+permalink: /about/
+description: Who makes these, how they're printed, and how to get hold of one.
+---
+
+<header class="page-head">
+  <h1 class="page-head__title">About</h1>
+</header>
+
+<div class="prose">
+  <h2>Local delivery and collection</h2>
+  <p>If you're in {{ site.localArea }} — postcodes {{ site.localPostcodes | join(", ") }} — you'll see free delivery and free collection at checkout. Delivery is by hand, usually within a couple of days. Collection means arranging a time by email once the order comes through.</p>
+  <p>Everywhere else in the UK, prints go rolled in a rigid tube, tracked, at {{ site.shipping.standard | money }}, or {{ site.shipping.express | money }} if you need it the next working day.</p>
+
+  <h2>If something arrives damaged</h2>
+  <p>Send a photo to <a href="mailto:{{ site.email }}">{{ site.email }}</a> within a fortnight and you'll get a replacement if one exists, or a refund if it doesn't. Tubes usually survive the post, but not always.</p>
+
+  <h2>Commissions</h2>
+  <p>Occasionally, yes. Email with the film or record and roughly what you have in mind. Expect a few weeks rather than a few days.</p>
+
+  <p class="prose__contact"><a class="btn btn--film" href="mailto:{{ site.email }}">Email {{ site.email }}</a></p>
+</div>

@@ -1,0 +1,38 @@
+{# Resolves live stock (from _data/stock.js) with a fallback to prints.json #}
+{% macro qty(print, stock) %}{% if stock and stock[print.id] is defined %}{{ stock[print.id] }}{% else %}{{ print.stock }}{% endif %}{% endmacro %}
+
+{# Remaining copies as ink dots — honest at these run sizes in a way a number isn't #}
+{% macro dots(n) %}
+  {% set left = n | int %}
+  <p class="dots {% if left == 0 %}dots--gone{% endif %}">
+    <span class="dots__marks" aria-hidden="true">
+      {%- for i in range(0, 3) -%}
+        <span class="dot {% if i < left %}dot--filled{% endif %}"></span>
+      {%- endfor -%}
+    </span>
+    <span class="dots__label">
+      {%- if left == 0 -%}Sold out
+      {%- elif left == 1 -%}Last one
+      {%- else -%}{{ left }} left{%- endif -%}
+    </span>
+  </p>
+{% endmacro %}
+
+{% macro card(print, stock) %}
+  {% set left = qty(print, stock) | trim | int %}
+  <article class="card" data-ink="{{ print.theme }}">
+    <a class="card__link" href="/prints/{{ print.slug }}/">
+      <span class="card__frame">
+        <img src="{{ print.image }}" alt="{{ print.alt }}" loading="lazy" width="800" height="1131">
+        {% if left == 0 %}<span class="card__band">Sold out</span>{% endif %}
+      </span>
+      <h3 class="card__title">{{ print.title }}</h3>
+    </a>
+    <p class="card__meta">
+      <span class="card__theme">{{ print.theme }}</span>
+      <span class="card__year">{{ print.year }}</span>
+      <span class="card__price">{{ print.price | money }}</span>
+    </p>
+    {{ dots(left) }}
+  </article>
+{% endmacro %}

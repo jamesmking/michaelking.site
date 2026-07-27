@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-GB" data-ink="{{ ink or 'key' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} — {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or site.tagline }}">
+  <link rel="canonical" href="{{ page.url | absolute(site.url) }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.snipcart.com">
+  <link rel="preconnect" href="https://app.snipcart.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,600;125,800&family=DM+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v{{ site.snipcart.version }}/default/snipcart.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  {% include "partials/nav.njk" %}
+
+  <main id="main" class="frame">
+    <span class="crop crop--tl" aria-hidden="true"></span>
+    <span class="crop crop--tr" aria-hidden="true"></span>
+    <span class="crop crop--bl" aria-hidden="true"></span>
+    <span class="crop crop--br" aria-hidden="true"></span>
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+
+  <div hidden
+       id="snipcart"
+       data-api-key="{{ site.snipcart.publicApiKey }}"
+       data-currency="{{ site.snipcart.currency }}"
+       data-config-add-product-behavior="none"></div>
+  <script async src="https://cdn.snipcart.com/themes/v{{ site.snipcart.version }}/default/snipcart.js"></script>
+</body>
+</html>

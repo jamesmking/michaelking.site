@@ -1,0 +1,110 @@
+[
+  {
+    "id": "the-long-goodbye",
+    "slug": "the-long-goodbye",
+    "title": "The Long Goodbye",
+    "theme": "film",
+    "year": 1973,
+    "price": 35,
+    "sizes": [
+      { "label": "A3 (297 × 420mm)", "add": 0 },
+      { "label": "A2 (420 × 594mm)", "add": 15 }
+    ],
+    "stock": 3,
+    "paper": "Somerset Satin 300gsm",
+    "technique": "Three-colour screenprint",
+    "image": "/assets/img/placeholder.svg",
+    "alt": "Poster print for The Long Goodbye",
+    "blurb": "Neon signage bleeding into a Los Angeles night. Pulled by hand in three passes."
+  },
+  {
+    "id": "stalker",
+    "slug": "stalker",
+    "title": "Stalker",
+    "theme": "film",
+    "year": 1979,
+    "price": 40,
+    "sizes": [
+      { "label": "A3 (297 × 420mm)", "add": 0 },
+      { "label": "A2 (420 × 594mm)", "add": 15 }
+    ],
+    "stock": 2,
+    "paper": "Somerset Satin 300gsm",
+    "technique": "Two-colour screenprint",
+    "image": "/assets/img/placeholder.svg",
+    "alt": "Poster print for Stalker",
+    "blurb": "The Zone, reduced to rust and standing water."
+  },
+  {
+    "id": "chungking-express",
+    "slug": "chungking-express",
+    "title": "Chungking Express",
+    "theme": "film",
+    "year": 1994,
+    "price": 35,
+    "sizes": [
+      { "label": "A3 (297 × 420mm)", "add": 0 },
+      { "label": "A2 (420 × 594mm)", "add": 15 }
+    ],
+    "stock": 0,
+    "paper": "Somerset Satin 300gsm",
+    "technique": "Four-colour screenprint",
+    "image": "/assets/img/placeholder.svg",
+    "alt": "Poster print for Chungking Express",
+    "blurb": "Blurred midnight traffic and a tin of pineapple."
+  },
+  {
+    "id": "unknown-pleasures",
+    "slug": "unknown-pleasures",
+    "title": "Unknown Pleasures",
+    "theme": "music",
+    "year": 1979,
+    "price": 38,
+    "sizes": [
+      { "label": "A3 (297 × 420mm)", "add": 0 },
+      { "label": "A2 (420 × 594mm)", "add": 15 }
+    ],
+    "stock": 2,
+    "paper": "Colorplan Ebony 270gsm",
+    "technique": "Single-colour screenprint, white on black",
+    "image": "/assets/img/placeholder.svg",
+    "alt": "Poster print inspired by Unknown Pleasures",
+    "blurb": "One hundred and one radio pulses, redrawn by hand."
+  },
+  {
+    "id": "blue-note-1568",
+    "slug": "blue-note-1568",
+    "title": "Blue Note 1568",
+    "theme": "music",
+    "year": 1958,
+    "price": 42,
+    "sizes": [
+      { "label": "A3 (297 × 420mm)", "add": 0 },
+      { "label": "A2 (420 × 594mm)", "add": 15 }
+    ],
+    "stock": 3,
+    "paper": "Somerset Satin 300gsm",
+    "technique": "Two-colour screenprint",
+    "image": "/assets/img/placeholder.svg",
+    "alt": "Poster print in the style of a Blue Note sleeve",
+    "blurb": "Reid Miles proportions, one duotone photograph, no apologies."
+  },
+  {
+    "id": "hacienda-fac-51",
+    "slug": "hacienda-fac-51",
+    "title": "Haçienda FAC 51",
+    "theme": "music",
+    "year": 1982,
+    "price": 38,
+    "sizes": [
+      { "label": "A3 (297 × 420mm)", "add": 0 },
+      { "label": "A2 (420 × 594mm)", "add": 15 }
+    ],
+    "stock": 1,
+    "paper": "Colorplan Bright Yellow 270gsm",
+    "technique": "Two-colour screenprint",
+    "image": "/assets/img/placeholder.svg",
+    "alt": "Poster print for the Haçienda",
+    "blurb": "Hazard stripes, bollards, and a dancefloor that was always too cold."
+  }
+]

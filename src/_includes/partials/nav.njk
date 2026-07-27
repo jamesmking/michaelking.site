@@ -1,0 +1,15 @@
+<header class="masthead">
+  <a class="wordmark" href="/">
+    <span class="wordmark__film">{{ site.wordmark[0] }}</span><span class="wordmark__amp">{{ site.wordmark[1] }}</span><span class="wordmark__music">{{ site.wordmark[2] }}</span>
+  </a>
+
+  <nav class="nav" aria-label="Main">
+    <a href="/prints/" {% if page.url == "/prints/" %}aria-current="page"{% endif %}>All prints</a>
+    <a href="/film/" class="nav__film" {% if page.url == "/film/" %}aria-current="page"{% endif %}>Film</a>
+    <a href="/music/" class="nav__music" {% if page.url == "/music/" %}aria-current="page"{% endif %}>Music</a>
+    <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
+    <button type="button" class="snipcart-checkout cart">
+      Basket <span class="cart__count snipcart-items-count">0</span>
+    </button>
+  </nav>
+</header>

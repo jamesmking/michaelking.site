@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1414" role="img" aria-label="Placeholder poster">
+  <rect width="1000" height="1414" fill="#dcd9cf"/>
+  <g fill="none" stroke="#17191b" stroke-opacity="0.25" stroke-width="2">
+    <rect x="60" y="60" width="880" height="1294"/>
+    <circle cx="500" cy="707" r="120"/>
+    <path d="M380 707h240M500 587v240"/>
+  </g>
+  <text x="500" y="1240" text-anchor="middle" font-family="monospace" font-size="34" letter-spacing="6" fill="#17191b" fill-opacity="0.45">ARTWORK PENDING</text>
+</svg>

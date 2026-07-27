@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: All prints
+permalink: /prints/
+description: The full catalogue of film and music poster prints.
+---
+{% from "partials/print-card.njk" import card %}
+
+<header class="page-head">
+  <h1 class="page-head__title">All prints</h1>
+  <p class="page-head__body">{{ prints | length }} designs. Sold-out designs stay listed — a few come back, most don't.</p>
+</header>
+
+<div class="grid">
+  {% for print in prints %}
+    {{ card(print, stock) }}
+  {% endfor %}
+</div>
