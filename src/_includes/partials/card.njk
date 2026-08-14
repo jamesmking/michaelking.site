@@ -1,0 +1,28 @@
+{#
+  Expects `print` in context — include it from inside a {% for %} loop.
+
+  The image markup comes pre-rendered from _data/pictures.js — see the note
+  there for why it isn't a shortcode.
+
+  The collection is a genuine mix of portrait, square, landscape and one very
+  tall panel, so the card sizes its image from print.shape rather than forcing
+  everything into one ratio. The frame is a fixed box and the image is centred
+  inside it, the way a mount does the work in a real frame.
+#}
+{% set cardCategory = categories | find("slug", print.category) %}
+<article class="card" data-ink="{{ cardCategory.ink }}" data-shape="{{ print.shape }}">
+  <a class="card__link" href="/prints/{{ print.slug }}/">
+    <span class="card__frame">
+      {% if print.images | length %}
+        {{ pictures[print.slug].card | safe }}
+      {% else %}
+        <span class="card__pending">Photograph to follow</span>
+      {% endif %}
+    </span>
+    <h3 class="card__title">{{ print.title }}</h3>
+  </a>
+  <p class="card__meta">
+    <span class="card__cat">{{ cardCategory.short }}</span>
+    <span class="card__price">{{ print | priceLabel }}</span>
+  </p>
+</article>

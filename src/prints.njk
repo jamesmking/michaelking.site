@@ -2,17 +2,26 @@
 layout: layouts/base.njk
 title: All prints
 permalink: /prints/
-description: The full catalogue of film and music poster prints.
+description: The full catalogue — music, film, theatre, book covers, pop art and ephemera.
 ---
-{% from "partials/print-card.njk" import card %}
 
 <header class="page-head">
   <h1 class="page-head__title">All prints</h1>
-  <p class="page-head__body">{{ prints | length }} designs. Sold-out designs stay listed — a few come back, most don't.</p>
+  <p class="page-head__body">{{ prints | length }} designs, grouped by what they came from.</p>
+  <nav class="subnav" aria-label="Sections">
+    {% for category in categories %}
+      <a href="#{{ category.slug }}" data-ink="{{ category.ink }}">{{ category.title }}
+        <span class="subnav__count">{{ prints | byCategory(category.slug) | length }}</span>
+      </a>
+    {% endfor %}
+  </nav>
 </header>
 
-<div class="grid">
-  {% for print in prints %}
-    {{ card(print, stock) }}
-  {% endfor %}
-</div>
+{% for category in categories %}
+  <section class="section" id="{{ category.slug }}" data-ink="{{ category.ink }}">
+    <h2 class="section__head">{{ category.title }}</h2>
+    <div class="grid">
+      {% for print in prints | byCategory(category.slug) %}{% include "partials/card.njk" %}{% endfor %}
+    </div>
+  </section>
+{% endfor %}

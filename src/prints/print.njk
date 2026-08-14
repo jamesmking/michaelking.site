@@ -7,57 +7,105 @@ pagination:
 permalink: "/prints/{{ print.slug }}/"
 eleventyComputed:
   title: "{{ print.title }}"
-  description: "{{ print.blurb }}"
-  ink: "{{ print.theme }}"
+  description: "{{ print.note or print.title }}"
+  ink: "{{ (categories | find('slug', print.category)).ink }}"
 ---
-{% from "partials/print-card.njk" import qty, dots %}
-{% set left = qty(print, stock) | trim | int %}
+{% set category = categories | find("slug", print.category) %}
+{% set sub = category.subs | find("slug", print.sub) %}
 
-<article class="print">
-  <div class="print__image">
-    <img src="{{ print.image }}" alt="{{ print.alt }}" width="1000" height="1414">
+<article class="print" data-shape="{{ print.shape }}">
+  <div class="print__images">
+    {% for image in pictures[print.slug].detail %}
+      {{ image | safe }}
+    {% else %}
+      <p class="print__pending">A photograph of this one is still to come. Ask and it'll be sent over.</p>
+    {% endfor %}
   </div>
 
   <div class="print__detail">
-    <p class="print__eyebrow">{{ print.theme }} · {{ print.year }}</p>
+    <p class="print__eyebrow">
+      <a href="/{{ category.slug }}/">{{ category.title }}</a>{% if sub %} · {{ sub.title }}{% endif %}
+    </p>
     <h1 class="print__title">{{ print.title }}</h1>
-    <p class="print__blurb">{{ print.blurb }}</p>
+    {% if print.note %}<p class="print__blurb">{{ print.note }}</p>{% endif %}
 
-    <dl class="spec">
-      <div class="spec__row"><dt>Technique</dt><dd>{{ print.technique }}</dd></div>
-      <div class="spec__row"><dt>Paper</dt><dd>{{ print.paper }}</dd></div>
-      <div class="spec__row"><dt>Sizes</dt><dd>{% for s in print.sizes %}{{ s.label }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>
-    </dl>
+    <table class="options">
+      <caption class="visually-hidden">Sizes, frames and prices</caption>
+      <thead>
+        <tr><th scope="col">Size</th><th scope="col">Frame</th><th scope="col">Price</th></tr>
+      </thead>
+      <tbody>
+        {% for option in print.options %}
+          <tr>
+            <td>{{ option.size }}</td>
+            <td>{{ option.frame }}</td>
+            <td class="options__price">{{ option.price | money }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
-    <p class="print__price">{{ print.price | money }}<span class="print__from">{% if print.sizes | length > 1 %} for A3, larger sizes priced at checkout{% endif %}</span></p>
+    <form class="reserve" method="post" action="/api/enquiry">
+      <h2 class="reserve__head">Reserve this print</h2>
+      <p class="reserve__intro">
+        Send the details and Michael will confirm it's available and arrange
+        {% if site.payment | length %}payment — {{ site.payment | join(", ") | lower }}{% else %}payment{% endif %}.
+        Nothing is charged here.
+      </p>
 
-    {{ dots(left) }}
+      <input type="hidden" name="print" value="{{ print.title }}">
+      <input type="hidden" name="printUrl" value="{{ page.url | absolute(site.url) }}">
+      {# Bots fill this in; people never see it. #}
+      <p class="reserve__trap" aria-hidden="true">
+        <label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      </p>
 
-    {% if left > 0 %}
-      <button
-        type="button"
-        class="btn btn--buy snipcart-add-item"
-        data-item-id="{{ print.id }}"
-        data-item-name="{{ print.title }}"
-        data-item-price="{{ print.price | price }}"
-        data-item-url="{{ page.url }}"
-        data-item-image="{{ print.image }}"
-        data-item-description="{{ print.technique }} on {{ print.paper }}"
-        data-item-max-quantity="{{ left }}"
-        data-item-custom1-name="Size"
-        data-item-custom1-options="{{ print.sizes | sizeOptions }}"
-        data-item-custom2-name="Anything you'd like written on the back?"
-        data-item-custom2-type="textarea"
-        data-item-custom2-required="false">
-        Add to basket
-      </button>
-    {% else %}
-      <p class="soldout">This one has gone. Email <a href="mailto:{{ site.email }}?subject=Reprint%20of%20{{ print.title | urlencode }}">{{ site.email }}</a> and you'll be told first if it's ever pulled again.</p>
-    {% endif %}
+      {% if print.options | length > 1 %}
+        <p class="field">
+          <label for="option">Which one</label>
+          <select id="option" name="option">
+            {% for option in print.options %}
+              <option value="{{ option.size }}, {{ option.frame }}">{{ option.size }} · {{ option.frame }} · {{ option.price | money }}</option>
+            {% endfor %}
+          </select>
+        </p>
+      {% else %}
+        <input type="hidden" name="option" value="{{ print.options[0].size }}, {{ print.options[0].frame }}">
+      {% endif %}
+
+      <p class="field">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </p>
+      <p class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </p>
+      <p class="field">
+        <label for="phone">Phone <span class="field__opt">optional</span></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel">
+      </p>
+
+      <fieldset class="field field--choice">
+        <legend>Collection or delivery</legend>
+        <label><input type="radio" name="fulfilment" value="Collection" checked> Collection</label>
+        <label><input type="radio" name="fulfilment" value="Delivery"> Delivery</label>
+      </fieldset>
+
+      <p class="field">
+        <label for="message">Anything else <span class="field__opt">optional</span></label>
+        <textarea id="message" name="message" rows="3"></textarea>
+      </p>
+
+      <button type="submit" class="btn btn--accent">Send enquiry</button>
+
+      <p class="reserve__alt">
+        Or email <a href="mailto:{{ site.email }}?subject={{ print.title | urlencode }}">{{ site.email }}</a> directly.
+      </p>
+    </form>
 
     <p class="print__delivery">
-      Free delivery or collection on postcodes {{ site.localPostcodes | join(", ") }}.
-      Elsewhere in the UK, {{ site.shipping.standard | money }} tracked.
+      Collection or delivery in {{ site.localArea }}. {{ site.deliveryNote }}
     </p>
   </div>
 </article>
@@ -67,15 +115,17 @@ eleventyComputed:
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": {{ print.title | dump | safe }},
-  "image": {{ (print.image | absolute(site.url)) | dump | safe }},
-  "description": {{ print.blurb | dump | safe }},
-  "brand": { "@type": "Brand", "name": {{ site.name | dump | safe }} },
+  {% if print.images | length %}"image": {{ (print.images[0].src | absolute(site.url)) | dump | safe }},{% endif %}
+  "description": {{ (print.note or print.title) | dump | safe }},
+  "brand": { "@type": "Brand", "name": {{ site.name | dump | safe }} }
+  {%- if print.priceFrom %},
   "offers": {
     "@type": "Offer",
     "url": {{ (page.url | absolute(site.url)) | dump | safe }},
     "priceCurrency": "GBP",
-    "price": "{{ print.price | price }}",
-    "availability": "https://schema.org/{% if left > 0 %}InStock{% else %}OutOfStock{% endif %}"
+    "price": "{{ print.priceFrom }}",
+    "availability": "https://schema.org/InStock"
   }
+  {%- endif %}
 }
 </script>

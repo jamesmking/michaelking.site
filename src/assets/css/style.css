@@ -1,7 +1,10 @@
 /* =============================================================
-   Reel & Groove — the palette is the four process inks.
-   Key for text, cyan for film, magenta for music, yellow as a
-   marker only. Paper is an uncoated stock, not white.
+   Michael King Prints — the palette is the process inks, one per
+   section of the catalogue. Key, cyan and magenta are the process
+   three; vermilion and green are spot colours, the extra plates a
+   printer loads when three won't cover it. Yellow stays a marker
+   only — it has no contrast on this paper and never sets text.
+   Paper is an uncoated stock, not white.
    ============================================================= */
 
 :root {
@@ -13,6 +16,8 @@
 
   --cyan: #0079b8;
   --magenta: #b8005f;
+  --vermilion: #c1440e;
+  --green: #256b4b;
   --yellow: #f0c000;
 
   --accent: var(--key);
@@ -26,8 +31,24 @@
   --shell: 78rem;
 }
 
-[data-ink="film"] { --accent: var(--cyan); }
-[data-ink="music"] { --accent: var(--magenta); }
+/* One rule, applied wherever a section's ink needs to take over: the
+   page root, a card, a nav link, a run of prints. */
+[data-ink="key"]       { --accent: var(--key); }
+[data-ink="cyan"]      { --accent: var(--cyan); }
+[data-ink="magenta"]   { --accent: var(--magenta); }
+[data-ink="vermilion"] { --accent: var(--vermilion); }
+[data-ink="green"]     { --accent: var(--green); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -44,6 +65,11 @@ body {
 }
 
 img { max-width: 100%; height: auto; display: block; }
+
+/* <source> never paints, but `display: contents` on a <picture> promotes its
+   children to grid items — and an unstyled source then takes a cell of its
+   own, pushing every image one place along. Belt and braces. */
+picture source { display: none; }
 
 a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
 a:hover { text-decoration-color: var(--accent); }
@@ -87,9 +113,9 @@ a:hover { text-decoration-color: var(--accent); }
   display: inline-flex;
   gap: 0.3em;
 }
-.wordmark__film { color: var(--cyan); }
-.wordmark__amp { color: var(--key-soft); font-weight: 600; }
-.wordmark__music { color: var(--magenta); }
+.wordmark__a { color: var(--magenta); }
+.wordmark__b { color: var(--key); }
+.wordmark__c { color: var(--cyan); }
 
 .nav {
   display: flex;
@@ -104,27 +130,7 @@ a:hover { text-decoration-color: var(--accent); }
 .nav a { text-decoration: none; padding-bottom: 0.15em; border-bottom: 2px solid transparent; }
 .nav a:hover { border-bottom-color: var(--rule); }
 .nav a[aria-current="page"] { border-bottom-color: currentColor; }
-.nav__film { color: var(--cyan); }
-.nav__music { color: var(--magenta); }
-
-.cart {
-  font: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
-  background: none;
-  border: 1px solid var(--rule);
-  border-radius: 0;
-  color: inherit;
-  padding: 0.45rem 0.7rem;
-  cursor: pointer;
-}
-.cart:hover { border-color: var(--key); }
-.cart__count {
-  font-weight: 500;
-  background: var(--yellow);
-  padding: 0 0.35em;
-  margin-left: 0.35em;
-}
+.nav__ink { color: var(--accent); }
 
 /* --- Sheet with crop marks (the signature) -------------------- */
 
@@ -171,8 +177,7 @@ a:hover { text-decoration-color: var(--accent); }
   margin: 0 0 1.5rem;
   text-wrap: balance;
 }
-.hero__ink--film { color: var(--cyan); }
-.hero__ink--music { color: var(--magenta); }
+.hero__ink { color: var(--accent); }
 
 .hero__body { max-width: var(--measure); margin: 0 0 2rem; }
 
@@ -193,20 +198,15 @@ a:hover { text-decoration-color: var(--accent); }
   cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
-.btn--film { color: var(--cyan); }
-.btn--music { color: var(--magenta); }
-.btn--film:hover, .btn--music:hover { background: currentColor; }
-.btn--film:hover { color: var(--paper); background: var(--cyan); }
-.btn--music:hover { color: var(--paper); background: var(--magenta); }
-
-.btn--buy {
+.btn--accent {
   color: var(--paper);
   background: var(--accent);
   border-color: var(--accent);
-  padding: 1rem 2rem;
-  width: 100%;
 }
-.btn--buy:hover { background: var(--key); border-color: var(--key); }
+.btn--accent:hover { background: var(--key); border-color: var(--key); }
+
+/* The submit on the reserve form — the one real action on a print page. */
+.reserve .btn { width: 100%; padding: 1rem 2rem; }
 
 /* --- Page heads ----------------------------------------------- */
 
@@ -246,32 +246,49 @@ a:hover { text-decoration-color: var(--accent); }
 .card { display: flex; flex-direction: column; }
 .card__link { text-decoration: none; display: block; }
 
+/* Every card gets the same box whatever the print's proportions, and the
+   artwork is centred inside it — the way a mount does the work in a real
+   frame. Cropping to a common ratio would cut the edge off a square, and
+   sizing each frame to its own print gives a ragged grid that reads as a
+   mistake rather than a decision. A wall of matching mounts is the point. */
 .card__frame {
   position: relative;
-  display: block;
+  display: grid;
+  place-items: center;
   background: var(--paper-deep);
-  aspect-ratio: 1 / 1.414;
+  aspect-ratio: 1 / 1.2;
+  padding: clamp(0.6rem, 2vw, 1.1rem);
   overflow: hidden;
 }
+/* eleventy-img wraps the <img> in a <picture>. Left alone, the picture is the
+   grid item and sizes itself to its content, so the img's max-height:100% has
+   no definite height to resolve against and the poster overflows the frame.
+   display:contents drops the wrapper out of the box tree so the img is the
+   grid item, which is what the centring and the max-* below assume. */
+.card__frame picture { display: contents; }
+
 .card__frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  /* Grid items default to min-height:auto, which refuses to shrink below the
+     image's intrinsic size — max-height alone won't contain a 1600px poster. */
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 .card__link:hover .card__frame img { transform: scale(1.03); }
 
-.card__band {
-  position: absolute;
-  inset: auto 0 0 0;
-  background: var(--key);
-  color: var(--paper);
+.card__pending {
   font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--key-soft);
   text-align: center;
-  padding: 0.4rem;
+  padding: 1rem;
 }
 
 .card__title {
@@ -290,36 +307,87 @@ a:hover { text-decoration-color: var(--accent); }
   font-family: var(--mono);
   font-size: 0.75rem;
   color: var(--key-soft);
-  margin: 0 0 0.6rem;
+  /* auto keeps the price line on the baseline across a row when one title
+     wraps to two lines and its neighbours don't. */
+  margin: auto 0 0.6rem;
 }
-.card__theme { text-transform: uppercase; letter-spacing: 0.08em; }
+.card__cat { text-transform: uppercase; letter-spacing: 0.08em; }
 .card__price { margin-left: auto; color: var(--key); }
 
-.card[data-ink="film"] { --accent: var(--cyan); }
-.card[data-ink="music"] { --accent: var(--magenta); }
+/* --- Sections and in-page nav --------------------------------- */
 
-/* --- Stock dots ----------------------------------------------- */
+.section { margin-bottom: clamp(3rem, 7vw, 5rem); scroll-margin-top: 1.5rem; }
+.section__head {
+  font-family: var(--display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  letter-spacing: -0.015em;
+  color: var(--accent);
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--accent);
+}
 
-.dots {
+.subnav {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 1.5rem;
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+.subnav a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.2em;
+}
+.subnav a:hover { border-bottom-color: currentColor; }
+.subnav__count { color: var(--key-soft); }
+
+/* --- Home: the five sections ---------------------------------- */
+
+.sections { margin-bottom: clamp(3rem, 7vw, 5rem); }
+.sections__list {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
 }
-.dots__marks { display: inline-flex; gap: 0.25rem; }
-.dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  border: 1px solid var(--accent);
+@media (min-width: 46rem) {
+  .sections__list { grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
 }
-.dot--filled { background: var(--accent); }
-.dots--gone { color: var(--key-soft); }
-.dots--gone .dot { border-color: var(--key-soft); }
+.sections__item { background: var(--paper); padding: 1.5rem 1.25rem; }
+.sections__item a { text-decoration: none; display: block; }
+.sections__title {
+  display: block;
+  font-family: var(--display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.015em;
+  color: var(--accent);
+}
+.sections__count {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--key-soft);
+  margin-top: 0.2rem;
+}
+.sections__desc {
+  font-size: 0.88rem;
+  color: var(--key-soft);
+  margin: 0.75rem 0 0;
+}
 
 /* --- Single print --------------------------------------------- */
 
@@ -334,7 +402,38 @@ a:hover { text-decoration-color: var(--accent); }
   .print__detail { position: sticky; top: 2rem; }
 }
 
-.print__image { background: var(--paper-deep); }
+.print__images { display: grid; gap: 1rem; }
+.print__images picture { display: contents; }
+.print__images img {
+  background: var(--paper-deep);
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  /* Mr Kite is 230 × 500mm. Unconstrained it runs to three screens and the
+     detail panel is stranded beside a column of nothing. */
+  max-height: 85vh;
+  margin: 0 auto;
+}
+/* The diptychs and the pair of tickets are hung side by side.
+   Matched on picture, not img: display:contents above rearranges the box tree
+   but not the DOM, and each img is still wrapped in its own picture, so
+   `img + img` never matches. */
+@media (min-width: 34rem) {
+  .print__images:has(picture + picture) {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .print__images:has(picture + picture) img { max-height: 60vh; }
+}
+.print__pending {
+  background: var(--paper-deep);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--key-soft);
+  margin: 0;
+}
 
 .print__eyebrow {
   font-family: var(--mono);
@@ -355,42 +454,117 @@ a:hover { text-decoration-color: var(--accent); }
 }
 .print__blurb { margin: 0 0 1.75rem; max-width: var(--measure); }
 
-.spec { margin: 0 0 1.75rem; border-top: 1px solid var(--rule); }
-.spec__row {
-  display: flex;
-  gap: 1rem;
-  padding: 0.6rem 0;
-  border-bottom: 1px solid var(--rule);
+/* Sizes, frames and prices. A table because that is what it is —
+   most prints have one row, a few have two. */
+.options {
+  width: 100%;
+  border-collapse: collapse;
   font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+  margin: 0 0 2rem;
 }
-.spec dt { color: var(--key-soft); flex: 0 0 7rem; text-transform: uppercase; letter-spacing: 0.06em; }
-.spec dd { margin: 0; }
+.options th {
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--key-soft);
+  padding: 0 0 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.options td {
+  padding: 0.7rem 0.75rem 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: baseline;
+}
+.options__price { text-align: right; padding-right: 0; color: var(--key); font-weight: 500; }
 
-.print__price {
+/* --- Reserve form --------------------------------------------- */
+
+.reserve {
+  border-top: 2px solid var(--accent);
+  padding-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.reserve__head {
   font-family: var(--display);
   font-stretch: 125%;
   font-weight: 800;
-  font-size: 1.75rem;
-  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
 }
-.print__from {
+.reserve__intro { font-size: 0.92rem; color: var(--key-soft); margin: 0 0 1.5rem; }
+.reserve__alt {
   font-family: var(--mono);
-  font-weight: 400;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: var(--key-soft);
-  letter-spacing: 0;
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+/* The honeypot. Off-screen rather than display:none — some bots skip
+   anything hidden outright, and this needs to look fillable to them. */
+.reserve__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.field { margin: 0 0 1.1rem; }
+.field label,
+.field legend {
   display: block;
-  margin-top: 0.3rem;
-}
-
-.print .dots { margin-bottom: 1.5rem; }
-
-.soldout {
-  border-left: 3px solid var(--accent);
-  padding-left: 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--key-soft);
+  margin-bottom: 0.4rem;
+  padding: 0;
 }
+.field__opt { text-transform: none; letter-spacing: 0; font-style: italic; }
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field select,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--key);
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 0.6rem 0.7rem;
+}
+.field textarea { resize: vertical; }
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.field--choice { border: 0; margin: 0 0 1.1rem; padding: 0; }
+.field--choice label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 1.25rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--key);
+}
+.field--choice input { accent-color: var(--accent); }
 
 .print__delivery {
   font-family: var(--mono);
@@ -446,19 +620,6 @@ a:hover { text-decoration-color: var(--accent); }
   margin: 0;
   padding-top: 1.5rem;
   border-top: 1px solid var(--rule);
-}
-
-/* --- Snipcart overrides --------------------------------------- */
-
-#snipcart {
-  --color-default: var(--key);
-  --color-link: var(--cyan);
-  --color-buttonPrimary: var(--paper);
-  --bgColor-default: var(--paper);
-  --bgColor-buttonPrimary: var(--key);
-  --borderColor-default: var(--rule);
-  --borderRadius-md: 0;
-  --font-default: var(--body);
 }
 
 @media (prefers-reduced-motion: reduce) {

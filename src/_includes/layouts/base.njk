@@ -9,11 +9,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.snipcart.com">
-  <link rel="preconnect" href="https://app.snipcart.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,600;125,800&family=DM+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v{{ site.snipcart.version }}/default/snipcart.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -29,12 +26,5 @@
   </main>
 
   {% include "partials/footer.njk" %}
-
-  <div hidden
-       id="snipcart"
-       data-api-key="{{ site.snipcart.publicApiKey }}"
-       data-currency="{{ site.snipcart.currency }}"
-       data-config-add-product-behavior="none"></div>
-  <script async src="https://cdn.snipcart.com/themes/v{{ site.snipcart.version }}/default/snipcart.js"></script>
 </body>
 </html>

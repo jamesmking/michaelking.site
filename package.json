@@ -1,16 +1,19 @@
 {
-  "name": "poster-shop",
-  "version": "1.0.0",
+  "name": "michael-king-prints",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "Static shop for original film & music poster prints. 11ty + Snipcart, deployed to Cloudflare Pages.",
+  "description": "Catalogue of framed prints — film, music, theatre, book covers, pop art. 11ty on Cloudflare Pages. Enquiry-based, no online checkout.",
   "scripts": {
     "dev": "eleventy --serve",
     "build": "eleventy",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "import:catalogue": "node scripts/import-catalogue.mjs",
+    "import:images": "node scripts/import-images.mjs"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^7.0.0"
   },
   "engines": {
     "node": ">=18"

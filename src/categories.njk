@@ -1,0 +1,49 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: categories
+  size: 1
+  alias: category
+permalink: "/{{ category.slug }}/"
+eleventyComputed:
+  title: "{{ category.title }}"
+  description: "{{ category.description }}"
+  ink: "{{ category.ink }}"
+---
+{% set inCategory = prints | byCategory(category.slug) %}
+
+<header class="page-head">
+  <h1 class="page-head__title">{{ category.title }}</h1>
+  <p class="page-head__body">{{ category.description }}</p>
+
+  {% if category.subs | length %}
+    <nav class="subnav" aria-label="Within {{ category.title }}">
+      {% for sub in category.subs %}
+        {% set count = inCategory | bySub(sub.slug) | length %}
+        {% if count %}
+          <a href="#{{ sub.slug }}">{{ sub.title }} <span class="subnav__count">{{ count }}</span></a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+  {% endif %}
+</header>
+
+{% if category.subs | length %}
+  {% for sub in category.subs %}
+    {% set inSub = inCategory | bySub(sub.slug) %}
+    {% if inSub | length %}
+      <section class="section" id="{{ sub.slug }}">
+        <h2 class="section__head">{{ sub.title }}</h2>
+        <div class="grid">
+          {% for print in inSub %}{% include "partials/card.njk" %}{% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  {% endfor %}
+{% else %}
+  <div class="grid">
+    {% for print in inCategory %}{% include "partials/card.njk" %}{% else %}
+      <p class="empty">Nothing here yet.</p>
+    {% endfor %}
+  </div>
+{% endif %}

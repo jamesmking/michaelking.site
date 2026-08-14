@@ -1,28 +1,42 @@
 ---
 layout: layouts/base.njk
 title: false
-description: Original screenprinted film and music posters, made in runs of three.
+description: Framed prints of film posters, gig posters, book covers and pop art — made one at a time in Coventry.
 ---
-{% from "partials/print-card.njk" import card %}
 
 <section class="hero">
   <h1 class="hero__title">
-    Posters for the <span class="hero__ink hero__ink--film">films</span>
-    and <span class="hero__ink hero__ink--music">records</span>
-    you keep going back to.
+    Framed prints of the
+    <span class="hero__ink" data-ink="magenta">records</span>,
+    <span class="hero__ink" data-ink="cyan">films</span> and
+    <span class="hero__ink" data-ink="key">books</span>
+    worth putting on a wall.
   </h1>
+  <p class="hero__body">{{ site.tagline }}</p>
   <p class="hero__actions">
-    <a class="btn btn--film" href="/film/">Film prints</a>
-    <a class="btn btn--music" href="/music/">Music prints</a>
+    <a class="btn btn--accent" href="/prints/">See all {{ prints | length }} prints</a>
   </p>
 </section>
 
-<section class="strip">
-  <h2 class="strip__head">On the shelf right now</h2>
-  <div class="grid">
-    {% for print in prints | inStock %}
-      {{ card(print, stock) }}
+<section class="sections">
+  <h2 class="visually-hidden">Browse by section</h2>
+  <ul class="sections__list">
+    {% for category in categories %}
+      <li class="sections__item" data-ink="{{ category.ink }}">
+        <a href="/{{ category.slug }}/">
+          <span class="sections__title">{{ category.title }}</span>
+          <span class="sections__count">{{ prints | byCategory(category.slug) | length }} prints</span>
+        </a>
+        <p class="sections__desc">{{ category.description }}</p>
+      </li>
     {% endfor %}
+  </ul>
+</section>
+
+<section class="strip">
+  <h2 class="strip__head">A few of them</h2>
+  <div class="grid">
+    {% for print in prints | hasImage | spread(8) %}{% include "partials/card.njk" %}{% endfor %}
   </div>
   <p class="strip__more"><a href="/prints/">See the full catalogue →</a></p>
 </section>

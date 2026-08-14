@@ -1,16 +1,22 @@
 <footer class="footer">
   <div class="footer__col">
     <h2 class="footer__head">Getting it to you</h2>
-    <p>Posted flat-packed or rolled in a rigid tube, tracked, {{ site.shipping.standard | money }} anywhere in the UK.</p>
-    <p><strong>Free local delivery or collection</strong> in {{ site.localArea }} — postcodes {{ site.localPostcodes | join(", ") }}. Choose it at checkout and nothing is added to your total.</p>
+    <p>All framed prints can be collected or delivered within {{ site.localArea }}. {{ site.deliveryNote }}</p>
+    <p>Prints aren't posted — they're framed behind glass, and the postage would cost more than the print.</p>
+  </div>
+
+  <div class="footer__col">
+    <h2 class="footer__head">Paying</h2>
+    <p>{{ site.payment | join(", ") }}.</p>
+    <p class="footer__fine">Nothing is charged through this site. Send an enquiry and Michael will confirm what's available and sort the rest out with you directly.</p>
   </div>
 
   <div class="footer__col">
     <h2 class="footer__head">Get in touch</h2>
     <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
     {% if site.phone %}<p><a href="tel:{{ site.phone | replace(" ", "") }}">{{ site.phone }}</a></p>{% endif %}
-    <p class="footer__fine">Every print is made in small runs, so once a design sells out it may not come back.</p>
+    <p><a href="/about/#commissions">Commissions</a></p>
   </div>
 
-  <p class="footer__legal">© {{ site.year }} {{ site.name }}. Prints are original works and not affiliated with any studio or label.</p>
+  <p class="footer__legal">© {{ site.year }} {{ site.name }}. Prints are original and reimagined designs, not reproductions, and are not affiliated with or endorsed by any studio, label, publisher or estate.</p>
 </footer>

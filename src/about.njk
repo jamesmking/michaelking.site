@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 title: About
 permalink: /about/
-description: Who makes these, how they're printed, and how to get hold of one.
+description: How the prints are made, how to buy one, and how commissions work.
 ---
 
 <header class="page-head">
@@ -10,14 +10,25 @@ description: Who makes these, how they're printed, and how to get hold of one.
 </header>
 
 <div class="prose">
-    <p>A collection of framed prints created over the years, inspired by film posters, music posters, book covers and more.</p>
-    <p>Where possible, the designs use typefaces and imagery that complement the original subject. The collection includes a mixture of original and newly created designs. Some are based on real concerts but feature completely new artwork rather than reproductions of the original posters &mdash; including designs for Jimi Hendrix, Bob Marley and The Clash.</p>
-    <p>Others include reimagined book covers, such as <em>1984</em>, as well as familiar posters given a new twist with alternative captions and artwork.</p>
-    <p>All prints are produced to the same high standard using high-quality, colourfast printing. Prices vary mainly according to the quality and style of the frame.</p>
-    <p>Payment can be made by bank transfer, or by cash on collection or delivery.</p>
-    <p>All framed prints can be collected or delivered within the Coventry and Warwickshire area. A small additional charge applies for delivery.</p>
-  <h2>Commissions</h2>
+  <p>A collection of framed prints created over the years, inspired by film posters, music posters, book covers and more.</p>
+
+  <p>Where possible, the designs use typefaces and imagery that complement the original subject. The collection includes a mixture of original and newly created designs. Some are based on real concerts but feature completely new artwork rather than reproductions of the original posters &mdash; including designs for Jimi Hendrix, Bob Marley and The Clash.</p>
+
+  <p>Others include reimagined book covers, such as <em>1984</em>, as well as familiar posters given a new twist with alternative captions and artwork.</p>
+
+  <p>All prints are produced to the same high standard using high-quality, colourfast printing. Prices vary mainly according to the quality and style of the frame.</p>
+
+  <h2>Buying one</h2>
+
+  <p>There's no basket and no card payment. Every print has a <strong>Reserve this print</strong> form &mdash; send that, and you'll get a reply confirming it's available and arranging the rest.</p>
+
+  <p>Payment can be made by bank transfer, or by cash on collection or delivery.</p>
+
+  <p>All framed prints can be collected or delivered within {{ site.localArea }}. {{ site.deliveryNote }}</p>
+
+  <h2 id="commissions">Commissions</h2>
+
   <p>Occasionally, yes. Email with the film or record and roughly what you have in mind. Expect a few weeks rather than a few days.</p>
 
-  <p class="prose__contact"><a class="btn btn--film" href="mailto:{{ site.email }}">Email {{ site.email }}</a></p>
+  <p class="prose__contact"><a class="btn btn--accent" href="mailto:{{ site.email }}">Email {{ site.email }}</a></p>
 </div>

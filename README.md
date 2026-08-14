@@ -1,147 +1,161 @@
-# Poster shop
+# Michael King Prints
 
-Static shop for original film and music poster prints.
-**11ty** for the site, **Snipcart** for cart/checkout/stock, **Cloudflare Pages** for hosting and the one serverless function.
+Catalogue of framed prints — film, music, theatre, book covers, pop art and
+ephemera. **11ty** for the site, **Cloudflare Pages** for hosting and one
+serverless function.
 
 ```
 npm install
-cp .env.example .env      # add your Snipcart test key
+cp .env.example .env
 npm run dev               # http://localhost:8080
 ```
 
-The site builds and renders without any keys — you just can't check out.
+The site builds and renders without any keys — the enquiry form just won't send.
+
+---
+
+## There is no checkout
+
+This is a catalogue with an enquiry form, not a shop. Michael's terms are bank
+transfer, or cash on collection or delivery, so there is nothing to charge and
+no card details to handle. Each print has a **Reserve this print** form that
+posts to `/api/enquiry`, which emails him and redirects to `/enquiry-sent/`.
+
+That removes a lot: no Snipcart, no Stripe, no price-validation crawl, no stock
+sync, no shipping webhook, no PCI surface. If a real basket is ever wanted,
+it's a rebuild of this layer, not a config change.
+
+Prints aren't posted — they're framed behind glass, and collection or local
+delivery in Coventry and Warwickshire is the only option offered.
 
 ---
 
 ## How it's put together
 
 ```
-src/_data/site.js        Shop name, contact, postcodes, shipping prices. Edit this first.
-src/_data/prints.json    The entire catalogue. One object per design.
-src/_data/themes.json    Drives /film/ and /music/. You'll rarely touch it.
-src/_data/stock.js       Optional live stock sync (see below).
+src/_data/site.js          Shop name, contact, area, payment methods. Edit first.
+src/_data/prints.json      The whole catalogue. One object per print.
+src/_data/categories.json  The five sections and their subcategories.
+src/_data/pictures.js      Generates responsive <picture> markup at build time.
 
-src/index.njk            Home
-src/prints.njk           /prints/ — everything
-src/themes.njk           Paginates themes.json into /film/ and /music/
-src/prints/print.njk     Paginates prints.json into /prints/<slug>/
-src/about.njk            /about/
+src/index.njk              Home
+src/prints.njk             /prints/ — everything, grouped by section
+src/categories.njk         Paginates categories.json into /music/, /pop-art/, …
+src/prints/print.njk       Paginates prints.json into /prints/<slug>/
+src/about.njk              /about/ — includes commissions
+src/enquiry-sent.njk       Where the form lands
 
-functions/api/shipping.js  Snipcart shipping webhook. Decides free-local vs postage.
+functions/api/enquiry.js   Takes the reserve form, emails it, redirects.
+scripts/import-catalogue.mjs  One-time import from Dad's product list.
+scripts/import-images.mjs     One-time import of his image files.
 ```
 
-There is no CMS. A print is a JSON object plus an image — see "Adding a print" below.
+There is no CMS. A print is a JSON object plus an image.
 
 ---
 
-## Adding a print
+## The catalogue
 
-1. Drop the photo in `src/assets/img/prints/`. Portrait, ~1000×1414, JPG or WebP.
-2. Add an object to `src/_data/prints.json`:
+`src/_data/prints.json` is the source of truth. One entry:
 
 ```json
 {
-  "id": "unique-and-permanent",
-  "slug": "url-slug",
-  "title": "Title",
-  "theme": "film",
-  "year": 1973,
-  "price": 35,
-  "sizes": [
-    { "label": "A3 (297 × 420mm)", "add": 0 },
-    { "label": "A2 (420 × 594mm)", "add": 15 }
+  "id": "hendrix-1968",
+  "slug": "hendrix-1968",
+  "title": "Jimi Hendrix — 1968",
+  "category": "music",
+  "sub": "gig-posters",
+  "options": [
+    { "size": "500 × 700mm", "frame": "Black, with glass", "price": 45 }
   ],
-  "stock": 3,
-  "paper": "Somerset Satin 300gsm",
-  "technique": "Three-colour screenprint",
-  "image": "/assets/img/prints/url-slug.jpg",
-  "alt": "Describe the artwork",
-  "blurb": "A sentence or two."
+  "priceFrom": 45,
+  "images": [
+    { "src": "/assets/img/prints/hendrix-1968.jpg", "width": 1139, "height": 1600 }
+  ],
+  "shape": "portrait",
+  "alt": "Jimi Hendrix — 1968 — framed print",
+  "note": "An original design.",
+  "needs": []
 }
 ```
 
-3. Commit and push. Cloudflare rebuilds.
+- **`options`** is size / frame / price. Most prints have one row; a few have
+  two. `"price": null` renders as *Price on enquiry* rather than a wrong number.
+- **`shape`** is `portrait`, `square`, `landscape` or `tall`, set by the image
+  import. Cards use one frame ratio regardless and letterbox inside it, so this
+  is metadata rather than a layout switch.
+- **`needs`** lists what's still missing — `price`, `image`, `size`,
+  `which-image`. `CATALOGUE-GAPS.md` is generated from these.
+- **`id` must never change** once a print has sold. It's how past enquiries
+  match up.
 
-**`id` must never change** once a print has sold — it's the key Snipcart uses to
-track stock and match past orders.
+### Adding a print by hand
 
-**The first entry in `sizes` must have `add: 0`.** It's the default option, and its
-price has to match `price` or Snipcart's validation will reject the item.
+Drop the photo in `src/assets/img/prints/`, add the object, commit. Cloudflare
+rebuilds. Images want to be sRGB and about 1600px on the long edge — see below
+for why that matters.
+
+### Re-importing from Dad's list
+
+When he sends corrections, edit the `ROWS` table in
+`scripts/import-catalogue.mjs` and run both scripts:
+
+```
+npm run import:catalogue   # rewrites prints.json and CATALOGUE-GAPS.md
+npm run import:images      # re-processes the originals, writes dimensions back
+```
+
+They read from `~/Downloads/JPEG Images` and fail loudly if a named file isn't
+there. The originals are never modified — they're the archive, and the only
+thing to go back to if a print needs reprinting.
 
 ---
 
-## Snipcart setup
+## Images
 
-1. Sign up, stay in **Test mode**. Copy the **public** API key into `.env` as
-   `SNIPCART_PUBLIC_KEY` (it's public by design — safe to commit if you'd rather
-   hardcode it in `site.js`).
-2. Store configurations → **Regional settings** → set currency to **GBP**.
-3. Connect **Stripe** as the payment gateway.
-4. Store configurations → **Webhooks** → Shipping rates → `https://yourdomain.com/api/shipping`.
-5. Products → import or add each print, matching the `id` from `prints.json`, and
-   set the stock level. Turn on **inventory management** per product.
-6. Test a full checkout with card `4242 4242 4242 4242`.
-7. Swap the test key for the live key and switch the dashboard to Live mode.
+His originals are print files: 3000–9000px, up to 63MB, and **51 of the 71 were
+CMYK**. Browsers render CMYK JPEGs with badly shifted colours, so
+`scripts/import-images.mjs` converts everything to sRGB and resizes to a 1600px
+long edge. Those masters are what's committed.
 
-### Two gotchas that will cost you an afternoon
+`src/_data/pictures.js` then generates 400/800/1200px WebP and JPEG at build
+time. The derivatives are not committed.
 
-**Price validation.** Before charging, Snipcart re-fetches `data-item-url` and
-re-reads the button's attributes to confirm the price hasn't been tampered with in
-the browser. So every product needs a publicly reachable page whose button matches,
-and prices can't be assembled client-side. On a static site this is free — just
-don't move the button into JS.
+Two things that will cost an afternoon if you forget them:
 
-**Stock lives in the Snipcart dashboard, not in this repo.** The `stock` field in
-`prints.json` is for display only — it's what renders the dots and the "Sold out"
-band. Snipcart holds the real number and blocks checkout at zero. Keeping them
-roughly in sync is a manual job unless you turn on the sync below.
+**Image markup is built in a data file, not a shortcode.** An async Nunjucks
+shortcode called from inside an `{% include %}` renders as *nothing at all* —
+silently, with no build error. Card markup is shared by three templates so it
+has to be an include, hence generating the HTML in `_data/pictures.js` where
+async is expected.
 
-### Optional: live stock at build time
-
-`src/_data/stock.js` pulls real stock levels from the Snipcart API during the build
-and overrides the JSON values, so "Sold out" is baked into the HTML rather than only
-appearing at checkout. Set `SNIPCART_SECRET_KEY` in the Cloudflare build environment
-to switch it on; without it, it logs a line and falls back silently.
-
-To keep the built site fresh, add a Snipcart webhook on `order.completed` pointing
-at a Cloudflare Pages **deploy hook**. Each sale then triggers a rebuild.
+**`<source>` is hidden explicitly in the CSS.** `display: contents` on a
+`<picture>` promotes its children to grid items, and an unstyled `<source>`
+then takes a grid cell of its own, silently pushing every image one place
+along. The rule is in `style.css` under the base `img` styles.
 
 ---
 
-## Local delivery and collection
+## The enquiry form
 
-`functions/api/shipping.js` matches the customer's **outward code** (the bit before
-the space) against a list. Local addresses get free collection and free delivery;
-everyone else gets tracked postage. Non-UK addresses get a polite error at checkout.
+`functions/api/enquiry.js` posts to [Resend](https://resend.com). Set in the
+Cloudflare Pages dashboard:
 
-Widening the area is one line:
+- `RESEND_API_KEY`
+- `ENQUIRY_FROM` — a verified sender on the domain
+- `ENQUIRY_TO` — where enquiries land, defaults to `ENQUIRY_FROM`
 
-```js
-const LOCAL_OUTWARD = ["B37", "B36", "B46", "B26", "CV7"];
-```
+Without a key the form returns a visible error telling the customer to email
+instead. That's deliberate: a silently dropped enquiry is a lost sale nobody
+finds out about.
 
-Keep it in sync with `localPostcodes` in `src/_data/site.js`, which is what the site
-*displays*. The function is what's *enforced*.
-
-Sanity-check the logic in a browser without going through checkout:
-
-```
-/api/shipping?postcode=B37+7WB
-```
-
-The GET handler exists purely for that. Delete it if you'd rather not expose it.
-
-Note it matches on the outward code deliberately rather than a radius — no geocoding
-call, no API key, no per-request cost, and it's obvious at a glance which areas are
-covered. The trade-off is that outward codes aren't circles, so a couple of addresses
-at the edges will be on the wrong side of the line. At this volume, handling those by
-email is cheaper than the alternative.
+It's a plain HTML form post with a 303 redirect, so it works with JavaScript
+off and a refresh on the confirmation page doesn't resubmit. Spam is handled
+with an off-screen honeypot field.
 
 ---
 
 ## Deploying to Cloudflare Pages
-
-Connect the repo, then:
 
 | Setting | Value |
 |---|---|
@@ -149,41 +163,53 @@ Connect the repo, then:
 | Output directory | `_site` |
 | Node version | `18` or later |
 
-Environment variables (Settings → Environment variables):
-
-- `SITE_URL` — the live URL, no trailing slash. Used for canonicals and JSON-LD.
-- `SNIPCART_PUBLIC_KEY`
-- `SNIPCART_SECRET_KEY` — **production only**, never in the repo.
-
-`functions/` is picked up automatically. `/api/shipping` will be live as soon as the
-first deploy finishes; no config needed.
+Environment variables: `SITE_URL` (live URL, no trailing slash), plus the three
+Resend values above. `functions/` is picked up automatically.
 
 ---
 
 ## Design notes
 
-The palette is the four process inks: **key** for text, **cyan** for film, **magenta**
-for music, **yellow** as a marker only. The theme a print belongs to sets its accent,
-so the two halves of the catalogue are literally two spot colours. Everything is
-driven by custom properties at the top of `style.css` — change the six hex values and
-the whole site follows.
+The palette is the process inks, one per section. Key, cyan and magenta are the
+process three; vermilion and green are spot colours — the extra plates a printer
+loads when three won't cover it. Yellow stays a marker only: it has no contrast
+on this paper and never sets text. Change the values at the top of `style.css`
+and the whole site follows.
 
-Type is Archivo at 125% width for display (expanded rather than the condensed you'd
-expect on a poster site), Newsreader for body, DM Mono for anything numeric or
-label-like. All three from Google Fonts.
+Cards all use one frame ratio and centre the artwork inside it, the way a mount
+does the work in a real frame. The collection is a genuine mix — 57 portrait,
+10 square, 3 landscape and one very tall panel — and sizing each frame to its
+own print gives a ragged grid that reads as a mistake rather than a decision.
 
-Remaining stock renders as three dots rather than a number, because at a run of three
-"● ● ○" is more legible at a glance than "2". If runs get bigger than three, swap the
-`dots` macro in `src/_includes/partials/print-card.njk` for a plain count.
+Type is Archivo at 125% width for display, Newsreader for body, DM Mono for
+anything numeric or label-like.
 
-The crop marks in the page corners are the one bit of decoration. They're in
-`base.njk` as four empty spans. Delete them if they wear thin.
+The crop marks in the page corners are the one bit of decoration. Four empty
+spans in `base.njk`. Delete them if they wear thin.
+
+---
+
+## Before launch
+
+`CATALOGUE-GAPS.md` is the list — 16 prints with no price, 6 with no image, 8
+image files with no entry in the list, and a handful of size and duplicate
+questions. It's regenerated by `npm run import:catalogue`.
+
+One thing worth a conversation: a fair number of these are recreations of works
+still in copyright — Mickey Mouse, Batman, Superman, Wonder Woman, the Joker,
+Lichtenstein, Keith Haring. Selling privately is one thing; a public shop with
+prices attached is more visible, and Disney and DC are the two most active
+enforcers going. Michael's call, but he should make it knowingly.
 
 ---
 
 ## Not built, deliberately
 
-- **A CMS.** If your dad wants to add prints himself, put [Sveltia CMS](https://github.com/sveltia/sveltia-cms) or Decap over `src/_data/` — the JSON shape is already CMS-friendly. If he's happy emailing you a photo four times a year, skip it.
-- **Image optimisation.** Add `@11ty/eleventy-img` when the real photos land.
-- **A sitemap.** Ten pages. Not worth the plugin until it is.
-- **VAT.** Leave tax config off entirely unless he's VAT-registered (over £90k turnover). Adding it "just in case" puts a confusing line on the invoice.
+- **A CMS.** If he wants to add prints himself, put
+  [Sveltia CMS](https://github.com/sveltia/sveltia-cms) over `src/_data/` — the
+  JSON shape is already CMS-friendly.
+- **A basket.** See above — his terms don't need one.
+- **Stock levels.** Nothing in his list mentions editions or quantities.
+  Everything reads as available to order until he says otherwise.
+- **A sitemap.** Eighty pages and five sections. Worth adding if search traffic
+  ever matters.

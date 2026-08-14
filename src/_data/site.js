@@ -3,37 +3,27 @@
 export default {
   year: new Date().getFullYear(),
 
-  // PLACEHOLDER — replace with the real shop name.
   name: "Michael King Prints",
-  tagline: "Reinterpreted, recreated film and music posters, printed in small runs.",
+  tagline:
+    "Framed prints of film posters, gig posters, book covers and more — recreated, reimagined, and made one at a time.",
 
-  // The wordmark is set in three parts so the two halves of the catalogue
-  // can each take their own ink. Change the words, keep the three slots.
+  // The wordmark is set in three parts so each can take its own ink.
   wordmark: ["Michael", "King", "Prints"],
 
-  // Used for canonical URLs and for Snipcart's price-validation crawl.
-  // Must match the live domain exactly, with no trailing slash.
+  // Used for canonical URLs. Must match the live domain exactly, no trailing slash.
   url: process.env.SITE_URL || "https://example.com",
 
+  // Where enquiries land. Also the fallback if the form's API key isn't set.
   email: "hello@michaelking.site",
   phone: "",
 
-  // Snipcart PUBLIC API key. Safe to commit — it is public by design.
-  // Use the TEST key while building; swap for the LIVE key at launch.
-  snipcart: {
-    publicApiKey: process.env.SNIPCART_PUBLIC_KEY || "REPLACE_WITH_TEST_KEY",
-    version: "3.7.1",
-    currency: "gbp",
-  },
+  // There is no checkout. Prints are reserved by enquiry, then paid for
+  // by bank transfer or in cash on collection or delivery.
+  payment: ["Bank transfer", "Cash on collection", "Cash on delivery"],
 
-  // Outward postcodes that qualify for free local delivery or collection.
-  // Shown on the site; enforced in functions/api/shipping.js.
-  // KEEP THE TWO LISTS IN SYNC.
-  localPostcodes: ["CV5", "CV1", "CV4", "CV6", "CV7"],
-  localArea: "Coventry and the surrounding areas",
-
-  shipping: {
-    standard: 4.95,
-    express: 7.95,
-  },
+  // Collection and delivery area. Displayed only — nothing is enforced,
+  // because nothing is charged online.
+  localArea: "Coventry and Warwickshire",
+  localPostcodes: ["CV1", "CV2", "CV3", "CV4", "CV5", "CV6", "CV7", "CV8"],
+  deliveryNote: "A small charge applies for delivery. Collection is free.",
 };
