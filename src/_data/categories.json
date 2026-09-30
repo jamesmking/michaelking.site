@@ -13,6 +13,10 @@
       {
         "slug": "records-promo",
         "title": "Records & promo"
+      },
+      {
+        "slug": "stones-no-filter",
+        "title": "Stones No Filter Tour 2017"
       }
     ]
   },
@@ -34,49 +38,27 @@
     ]
   },
   {
-    "slug": "books-comics",
-    "title": "Books & Comics",
+    "slug": "book-covers",
+    "title": "Book Covers",
     "short": "Books",
     "ink": "key",
-    "description": "Reimagined book covers and comic-strip characters. Orwell, Huxley, Burgess, and Desperate Dan.",
-    "subs": [
-      {
-        "slug": "book-covers",
-        "title": "Book covers"
-      },
-      {
-        "slug": "comics",
-        "title": "Comics"
-      }
-    ]
+    "description": "Reimagined book covers. Orwell, Huxley and Burgess.",
+    "subs": []
   },
   {
     "slug": "pop-art",
     "title": "Pop Art",
     "short": "Pop Art",
     "ink": "vermilion",
-    "description": "Comic-panel melodrama in the Lichtenstein manner, with alternative captions — plus a few other things borrowed from the sixties.",
-    "subs": [
-      {
-        "slug": "lichtenstein",
-        "title": "Lichtenstein style"
-      },
-      {
-        "slug": "super-heroes",
-        "title": "Super heroes"
-      },
-      {
-        "slug": "other",
-        "title": "Other"
-      }
-    ]
+    "description": "Comic-panel melodrama in the Lichtenstein manner, with alternative captions.",
+    "subs": []
   },
   {
-    "slug": "vintage",
-    "title": "Vintage & Ephemera",
-    "short": "Vintage",
+    "slug": "miscellaneous",
+    "title": "Miscellaneous",
+    "short": "Misc",
     "ink": "green",
-    "description": "Tickets, pin-ups and odds and ends that don't sit anywhere else.",
+    "description": "Tickets, pin-ups, Desperate Dan, a bit of Keith Haring, and the odds and ends that don't sit anywhere else.",
     "subs": []
   }
 ]

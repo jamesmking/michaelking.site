@@ -46,8 +46,11 @@ src/about.njk              /about/ — includes commissions
 src/enquiry-sent.njk       Where the form lands
 
 functions/api/enquiry.js   Takes the reserve form, emails it, redirects.
-scripts/import-catalogue.mjs  One-time import from Dad's product list.
-scripts/import-images.mjs     One-time import of his image files.
+scripts/import-catalogue.mjs  Rebuilds prints.json from Dad's Numbers spreadsheet.
+scripts/import-images.mjs     Converts his originals to web masters.
+
+Spec2/Poster Product List.numbers   His product list. The source of truth.
+Spec2/Images/                       His originals, one or two per print.
 ```
 
 There is no CMS. A print is a JSON object plus an image.
@@ -56,26 +59,30 @@ There is no CMS. A print is a JSON object plus an image.
 
 ## The catalogue
 
-`src/_data/prints.json` is the source of truth. One entry:
+`src/_data/prints.json` is what the templates read, and it's generated —
+the source of truth is `Spec2/Poster Product List.numbers`. One entry:
 
 ```json
 {
-  "id": "hendrix-1968",
-  "slug": "hendrix-1968",
+  "id": "jimi-hendrix-1968",
+  "slug": "jimi-hendrix-1968",
   "title": "Jimi Hendrix — 1968",
+  "listName": "Jimi Hendrix 1968 Gig",
   "category": "music",
   "sub": "gig-posters",
   "options": [
-    { "size": "500 × 700mm", "frame": "Black, with glass", "price": 45 }
+    { "size": "500 × 700mm", "frame": "Black frame with glass", "price": 45 }
   ],
   "priceFrom": 45,
   "images": [
-    { "src": "/assets/img/prints/hendrix-1968.jpg", "width": 1139, "height": 1600 }
+    { "src": "/assets/img/prints/jimi-hendrix-1968.jpg",
+      "source": "Hendrix 1968 Gig 500x700mm.jpg", "width": 1139, "height": 1600 }
   ],
   "shape": "portrait",
   "alt": "Jimi Hendrix — 1968 — framed print",
   "note": "An original design.",
-  "needs": []
+  "queries": [],
+  "mergedFrom": []
 }
 ```
 
@@ -84,37 +91,46 @@ There is no CMS. A print is a JSON object plus an image.
 - **`shape`** is `portrait`, `square`, `landscape` or `tall`, set by the image
   import. Cards use one frame ratio regardless and letterbox inside it, so this
   is metadata rather than a layout switch.
-- **`needs`** lists what's still missing — `price`, `image`, `size`,
-  `which-image`. `CATALOGUE-GAPS.md` is generated from these.
+- **`listName`** is the row's "Poster Name" in the spreadsheet, so a print can
+  be found in his list even after its title has been tidied for the site.
+- **`queries`** carries the spreadsheet's "Missing / Query" column, as written.
+  `CATALOGUE-GAPS.md` is generated from these.
 - **`id` must never change** once a print has sold. It's how past enquiries
   match up.
 
-### Adding a print by hand
+### Adding or changing a print
 
-Drop the photo in `src/assets/img/prints/`, add the object, commit. Cloudflare
-rebuilds. Images want to be sRGB and about 1600px on the long edge — see below
-for why that matters.
+Don't edit `prints.json` — it's overwritten on the next import. Instead:
 
-### Re-importing from Dad's list
-
-When he sends corrections, edit the `ROWS` table in
-`scripts/import-catalogue.mjs` and run both scripts:
+1. Add or change the row in `Spec2/Poster Product List.numbers`. One row per
+   size; two rows with the same name become one print with two options.
+2. Drop the image in `Spec2/Images/`.
+3. Add or update the row's entry in `MAP` at the top of
+   `scripts/import-catalogue.mjs` — image file, section, slug, display title.
+4. Run both scripts and commit the lot.
 
 ```
-npm run import:catalogue   # rewrites prints.json and CATALOGUE-GAPS.md
-npm run import:images      # re-processes the originals, writes dimensions back
+npm run import:catalogue   # exports the .numbers via Numbers.app, rewrites prints.json and CATALOGUE-GAPS.md
+npm run import:images      # re-processes the originals, writes dimensions back, removes stale masters
 ```
 
-They read from `~/Downloads/JPEG Images` and fail loudly if a named file isn't
-there. The originals are never modified — they're the archive, and the only
-thing to go back to if a print needs reprinting.
+The catalogue import needs Numbers installed — it drives the app with
+AppleScript to get a CSV. If you already have a CSV, pass it with `--csv`.
+
+It fails loudly, on purpose, whenever the spreadsheet and `MAP` disagree: a
+row with no `MAP` entry, a `MAP` entry with no row (he renamed it), an image
+that isn't on disk, an image on disk that nothing uses, or two prints with
+the same slug. Nothing is written until all of it lines up.
+
+The originals in `Spec2/Images` are never modified — they're the archive, and
+the only thing to go back to if a print needs reprinting.
 
 ---
 
 ## Images
 
-His originals are print files: 3000–9000px, up to 63MB, and **51 of the 71 were
-CMYK**. Browsers render CMYK JPEGs with badly shifted colours, so
+His originals are print files: 3000–9000px, many megabytes each, and **55 of
+the 78 are CMYK**. Browsers render CMYK JPEGs with badly shifted colours, so
 `scripts/import-images.mjs` converts everything to sRGB and resizes to a 1600px
 long edge. Those masters are what's committed.
 
@@ -177,8 +193,8 @@ on this paper and never sets text. Change the values at the top of `style.css`
 and the whole site follows.
 
 Cards all use one frame ratio and centre the artwork inside it, the way a mount
-does the work in a real frame. The collection is a genuine mix — 57 portrait,
-10 square, 3 landscape and one very tall panel — and sizing each frame to its
+does the work in a real frame. The collection is a genuine mix — 59 portrait,
+11 square, 4 landscape and one very tall panel — and sizing each frame to its
 own print gives a ragged grid that reads as a mistake rather than a decision.
 
 Type is Archivo at 125% width for display, Newsreader for body, DM Mono for
@@ -191,13 +207,13 @@ spans in `base.njk`. Delete them if they wear thin.
 
 ## Before launch
 
-`CATALOGUE-GAPS.md` is the list — 16 prints with no price, 6 with no image, 8
-image files with no entry in the list, and a handful of size and duplicate
-questions. It's regenerated by `npm run import:catalogue`.
+`CATALOGUE-GAPS.md` is the list. Every print now has a price and an image;
+what's left is the spreadsheet's own "Missing / Query" column (frame colours
+he didn't state, a few price checks) and the decisions the import made about
+duplicate rows. It's regenerated by `npm run import:catalogue`.
 
 One thing worth a conversation: a fair number of these are recreations of works
-still in copyright — Mickey Mouse, Batman, Superman, Wonder Woman, the Joker,
-Lichtenstein, Keith Haring. Selling privately is one thing; a public shop with
+still in copyright — Mickey Mouse, Superwoman, Lichtenstein, Keith Haring. Selling privately is one thing; a public shop with
 prices attached is more visible, and Disney and DC are the two most active
 enforcers going. Michael's call, but he should make it knowingly.
 
@@ -211,5 +227,5 @@ enforcers going. Michael's call, but he should make it knowingly.
 - **A basket.** See above — his terms don't need one.
 - **Stock levels.** Nothing in his list mentions editions or quantities.
   Everything reads as available to order until he says otherwise.
-- **A sitemap.** Eighty pages and five sections. Worth adding if search traffic
+- **A sitemap.** Eighty-odd pages and five sections. Worth adding if search traffic
   ever matters.

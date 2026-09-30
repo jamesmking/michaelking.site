@@ -3,12 +3,13 @@
     "id": "the-specials-1980-tour",
     "slug": "the-specials-1980-tour",
     "title": "The Specials 1980 Tour",
+    "listName": "Specials Tour Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -23,19 +24,52 @@
     ],
     "alt": "The Specials 1980 Tour — framed print",
     "note": "A recreation of the original 1980 UK tour poster.",
-    "needs": [],
+    "queries": [
+      "Frame colour not stated"
+    ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
-    "id": "2-tone-dance-craze",
-    "slug": "2-tone-dance-craze",
-    "title": "2-Tone Dance Craze",
+    "id": "the-specials-french-poster",
+    "slug": "the-specials-french-poster",
+    "title": "The Specials — French Poster",
+    "listName": "The Specials French Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/the-specials-french-poster.jpg",
+        "source": "The Specials French Poster 500x700mm.jpg",
+        "width": 1600,
+        "height": 1151
+      }
+    ],
+    "alt": "The Specials — French Poster — framed print",
+    "note": "",
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "landscape"
+  },
+  {
+    "id": "2-tone-dance-craze",
+    "slug": "2-tone-dance-craze",
+    "title": "2-Tone Dance Craze",
+    "listName": "2-Tone Dance Craze Poster",
+    "category": "music",
+    "sub": "gig-posters",
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -50,19 +84,21 @@
     ],
     "alt": "2-Tone Dance Craze — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "landscape"
   },
   {
     "id": "madness-1980-tour",
     "slug": "madness-1980-tour",
     "title": "Madness 1980 Tour",
+    "listName": "Madness Poster 1980 Tour",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -73,31 +109,54 @@
         "source": "Madness Poster 1980 Tour 500x700mm.jpg",
         "width": 1121,
         "height": 1600
-      },
-      {
-        "src": "/assets/img/prints/madness-1980-tour-2.jpg",
-        "source": "Madness 1980 Tour 500x700mm.jpg",
-        "width": 1130,
-        "height": 1600
       }
     ],
     "alt": "Madness 1980 Tour — framed print",
     "note": "",
-    "needs": [
-      "which-image"
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "portrait"
+  },
+  {
+    "id": "2-tone-tour-1979",
+    "slug": "2-tone-tour-1979",
+    "title": "2-Tone UK Tour 1979",
+    "listName": "2-Tone Tour Poster",
+    "category": "music",
+    "sub": "gig-posters",
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Black frame",
+        "price": 35
+      }
     ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/2-tone-tour-1979.jpg",
+        "source": "2-Tone Tour Poster 500x700mm.jpg",
+        "width": 1141,
+        "height": 1600
+      }
+    ],
+    "alt": "2-Tone UK Tour 1979 — framed print",
+    "note": "",
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "bb-king",
     "slug": "bb-king",
     "title": "B.B. King",
+    "listName": "BB King Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -112,50 +171,27 @@
     ],
     "alt": "B.B. King — framed print",
     "note": "A recreation of the original.",
-    "needs": [],
-    "shape": "portrait"
-  },
-  {
-    "id": "beatles-60s-cartoon",
-    "slug": "beatles-60s-cartoon",
-    "title": "Beatles 60s Cartoon",
-    "category": "music",
-    "sub": "records-promo",
-    "options": [
-      {
-        "size": "500 × 700mm",
-        "frame": "Silver",
-        "price": 35
-      }
+    "queries": [
+      "Frame colour not stated"
     ],
-    "priceFrom": 35,
-    "images": [
-      {
-        "src": "/assets/img/prints/beatles-60s-cartoon.jpg",
-        "source": "Beatles 60s Cartoon 500x700mm.jpg",
-        "width": 1148,
-        "height": 1600
-      }
-    ],
-    "alt": "Beatles 60s Cartoon — framed print",
-    "note": "",
-    "needs": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "bob-dylan-manchester-free-trade-hall-1966",
     "slug": "bob-dylan-manchester-free-trade-hall-1966",
     "title": "Bob Dylan — Manchester Free Trade Hall 1966",
+    "listName": "Bob Dylan Poster (Manchester Free Trade Hall 1966)",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Silver frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/bob-dylan-manchester-free-trade-hall-1966.jpg",
@@ -166,22 +202,52 @@
     ],
     "alt": "Bob Dylan — Manchester Free Trade Hall 1966 — framed print",
     "note": "A recreation of the original poster from the Manchester Free Trade Hall, 1966 — the night Dylan went electric.",
-    "needs": [
-      "price",
-      "which-image"
+    "queries": [
+      "Frame colour not stated"
     ],
+    "mergedFrom": [],
+    "shape": "portrait"
+  },
+  {
+    "id": "bob-dylan-86",
+    "slug": "bob-dylan-86",
+    "title": "Bob Dylan ’86",
+    "listName": "Bob Dylan Poster '86",
+    "category": "music",
+    "sub": "gig-posters",
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Silver frame",
+        "price": 30
+      }
+    ],
+    "priceFrom": 30,
+    "images": [
+      {
+        "src": "/assets/img/prints/bob-dylan-86.jpg",
+        "source": "Bob Dylan Poster 86 500x700mm.jpg",
+        "width": 1148,
+        "height": 1600
+      }
+    ],
+    "alt": "Bob Dylan ’86 — framed print",
+    "note": "",
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "bob-dylan-in-new-york",
     "slug": "bob-dylan-in-new-york",
     "title": "Bob Dylan in New York",
+    "listName": "Bob Dylan in New York",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Silver",
+        "frame": "Silver frame",
         "price": 35
       }
     ],
@@ -196,19 +262,21 @@
     ],
     "alt": "Bob Dylan in New York — framed print",
     "note": "A recreation of the original 1964 poster.",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "bob-marley-lyceum-theatre-1975",
     "slug": "bob-marley-lyceum-theatre-1975",
     "title": "Bob Marley — Lyceum Theatre 1975",
+    "listName": "Bob Marley Poster (Lyceum 1975)",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "594 × 841mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 45
       }
     ],
@@ -216,29 +284,28 @@
     "images": [
       {
         "src": "/assets/img/prints/bob-marley-lyceum-theatre-1975.jpg",
-        "source": "Bob Marley Poster 500x700mm.jpg",
-        "width": 1137,
+        "source": "Bob Marley 500x700mm.jpg",
+        "width": 1148,
         "height": 1600
       }
     ],
     "alt": "Bob Marley — Lyceum Theatre 1975 — framed print",
     "note": "An imagined poster for the two legendary sold-out shows at London's Lyceum Theatre, 17 and 18 July 1975.",
-    "needs": [
-      "size",
-      "which-image"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "bob-marley-and-the-wailers",
     "slug": "bob-marley-and-the-wailers",
-    "title": "Bob Marley & The Wailers",
+    "title": "Bob Marley & The Wailers — Uprising Tour",
+    "listName": "Bob Marley The Wailers Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -246,32 +313,32 @@
     "images": [
       {
         "src": "/assets/img/prints/bob-marley-and-the-wailers.jpg",
-        "source": "Bob Marley 500x700mm.jpg",
-        "width": 1148,
+        "source": "Bob Marley Poster 500x700mm.jpg",
+        "width": 1137,
         "height": 1600
       }
     ],
-    "alt": "Bob Marley & The Wailers — framed print",
+    "alt": "Bob Marley & The Wailers — Uprising Tour — framed print",
     "note": "",
-    "needs": [
-      "which-image"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "chuck-berry",
     "slug": "chuck-berry",
     "title": "Chuck Berry",
+    "listName": "Chuck Berry Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/chuck-berry.jpg",
@@ -282,26 +349,28 @@
     ],
     "alt": "Chuck Berry — framed print",
     "note": "After the 2008 poster. Original design and layout by Jerry Clayworth.",
-    "needs": [
-      "price"
+    "queries": [
+      "Frame colour not stated"
     ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "van-morrison",
     "slug": "van-morrison",
     "title": "Van Morrison",
+    "listName": "Van Morrison Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       },
       {
         "size": "594 × 841mm",
-        "frame": "Framed",
+        "frame": "Silver frame",
         "price": 45
       }
     ],
@@ -316,77 +385,21 @@
     ],
     "alt": "Van Morrison — framed print",
     "note": "A recreation of the 1971 event poster.",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
-  },
-  {
-    "id": "a-hard-days-night",
-    "slug": "a-hard-days-night",
-    "title": "A Hard Day's Night",
-    "category": "music",
-    "sub": "records-promo",
-    "options": [
-      {
-        "size": "500 × 700mm",
-        "frame": "Silver",
-        "price": 35
-      }
-    ],
-    "priceFrom": 35,
-    "images": [
-      {
-        "src": "/assets/img/prints/a-hard-days-night.jpg",
-        "source": "Hard Days Night Poster 500x700mm.jpg",
-        "width": 1126,
-        "height": 1600
-      }
-    ],
-    "alt": "A Hard Day's Night — framed print",
-    "note": "A recreation of the original film poster.",
-    "needs": [
-      "duplicate-listing"
-    ],
-    "shape": "portrait"
-  },
-  {
-    "id": "the-rat-pack",
-    "slug": "the-rat-pack",
-    "title": "The Rat Pack",
-    "category": "music",
-    "sub": "records-promo",
-    "options": [
-      {
-        "size": "508 × 508mm",
-        "frame": "Framed",
-        "price": 35
-      }
-    ],
-    "priceFrom": 35,
-    "images": [
-      {
-        "src": "/assets/img/prints/the-rat-pack.jpg",
-        "source": "Rat Pack Poster 508 x 508 mm.jpg",
-        "width": 1600,
-        "height": 1600
-      }
-    ],
-    "alt": "The Rat Pack — framed print",
-    "note": "A recreation of a record promo in the mid-century style.",
-    "needs": [
-      "duplicate-listing"
-    ],
-    "shape": "square"
   },
   {
     "id": "anarchy-in-the-uk",
     "slug": "anarchy-in-the-uk",
     "title": "Anarchy in the UK",
+    "listName": "Anarchy In The UK Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Black",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -401,19 +414,21 @@
     ],
     "alt": "Anarchy in the UK — framed print",
     "note": "A recreation of the notorious original.",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "filthy-lucre-tour-1996",
     "slug": "filthy-lucre-tour-1996",
     "title": "Filthy Lucre Tour 1996",
+    "listName": "Filthy Lucre Tour 1996",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Black",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -428,19 +443,21 @@
     ],
     "alt": "Filthy Lucre Tour 1996 — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "woodstock",
     "slug": "woodstock",
     "title": "Woodstock",
+    "listName": "Woodstock Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "594 × 841mm",
-        "frame": "Black",
+        "frame": "Black frame",
         "price": 40
       }
     ],
@@ -455,23 +472,25 @@
     ],
     "alt": "Woodstock — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "sam-cooke",
     "slug": "sam-cooke",
     "title": "Sam Cooke",
+    "listName": "Sam Cooke Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "594 × 841mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/sam-cooke.jpg",
@@ -482,22 +501,23 @@
     ],
     "alt": "Sam Cooke — framed print",
     "note": "A recreation of a 60s poster.",
-    "needs": [
-      "price",
-      "size"
+    "queries": [
+      "Price check: other 594 x 841 mm posters are £40-£45"
     ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "the-clash-1982",
     "slug": "the-clash-1982",
     "title": "The Clash — 1982",
+    "listName": "The Clash Poster (1982 Gig)",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Black",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -512,19 +532,21 @@
     ],
     "alt": "The Clash — 1982 — framed print",
     "note": "An original creation for an actual 1982 gig.",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "jimi-hendrix-1968",
     "slug": "jimi-hendrix-1968",
     "title": "Jimi Hendrix — 1968",
+    "listName": "Jimi Hendrix 1968 Gig",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Black, with glass",
+        "frame": "Black frame with glass",
         "price": 45
       }
     ],
@@ -539,19 +561,21 @@
     ],
     "alt": "Jimi Hendrix — 1968 — framed print",
     "note": "An original design.",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "jimi-hendrix-1967",
     "slug": "jimi-hendrix-1967",
     "title": "Jimi Hendrix — 1967",
+    "listName": "Hendrix Poster 1967 Gig",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -566,19 +590,21 @@
     ],
     "alt": "Jimi Hendrix — 1967 — framed print",
     "note": "A recreation of the 1967 gig poster with a new design.",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "stevie-wonder",
     "slug": "stevie-wonder",
     "title": "Stevie Wonder",
+    "listName": "Stevie Wonder Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 30
       }
     ],
@@ -593,24 +619,26 @@
     ],
     "alt": "Stevie Wonder — framed print",
     "note": "A recreation of an original.",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "david-bowie-oxford-1973",
     "slug": "david-bowie-oxford-1973",
     "title": "David Bowie — Oxford 1973",
+    "listName": "David Bowie Poster Oxford 1973",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Black, mounted",
+        "frame": "Black frame with mount",
         "price": 35
       },
       {
         "size": "400 × 500mm",
-        "frame": "Silver, mounted",
+        "frame": "Silver frame with mount",
         "price": 30
       }
     ],
@@ -625,48 +653,24 @@
     ],
     "alt": "David Bowie — Oxford 1973 — framed print",
     "note": "",
-    "needs": [],
+    "queries": [
+      "Source text garbled ('400 x 500mm1973 500x700mm') - confirm sizes/prices",
+      "Source text garbled - confirm sizes/prices"
+    ],
+    "mergedFrom": [],
     "shape": "portrait"
-  },
-  {
-    "id": "for-the-benefit-of-mr-kite",
-    "slug": "for-the-benefit-of-mr-kite",
-    "title": "For the Benefit of Mr Kite",
-    "category": "music",
-    "sub": "records-promo",
-    "options": [
-      {
-        "size": "280 × 550mm",
-        "frame": "Framed",
-        "price": 35
-      }
-    ],
-    "priceFrom": 35,
-    "images": [
-      {
-        "src": "/assets/img/prints/for-the-benefit-of-mr-kite.jpg",
-        "source": "Mr Kite Poster 230 x 500mm.tif",
-        "width": 752,
-        "height": 1600
-      }
-    ],
-    "alt": "For the Benefit of Mr Kite — framed print",
-    "note": "A reproduction of the original poster that inspired John Lennon to write the song, from Sgt. Pepper's Lonely Hearts Club Band (1967).",
-    "needs": [
-      "size"
-    ],
-    "shape": "tall"
   },
   {
     "id": "new-york-jazz",
     "slug": "new-york-jazz",
     "title": "New York Jazz",
+    "listName": "New York Jazz Poster",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "594 × 841mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 40
       }
     ],
@@ -681,23 +685,228 @@
     ],
     "alt": "New York Jazz — framed print",
     "note": "A recreation of the original.",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
-    "id": "stones-no-filter-poster-1",
-    "slug": "stones-no-filter-poster-1",
-    "title": "Stones No Filter — Poster 1",
+    "id": "tune-in-turn-loud",
+    "slug": "tune-in-turn-loud",
+    "title": "Tune In, Turn Loud",
+    "listName": "Rock Poster 'Tune in Turn Loud'",
     "category": "music",
     "sub": "gig-posters",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/tune-in-turn-loud.jpg",
+        "source": "Rock Poster 500x700mm.jpg",
+        "width": 1129,
+        "height": 1600
+      }
+    ],
+    "alt": "Tune In, Turn Loud — framed print",
+    "note": "",
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "portrait"
+  },
+  {
+    "id": "alan-freed-big-beat",
+    "slug": "alan-freed-big-beat",
+    "title": "Alan Freed — The Big Beat",
+    "listName": "Alan Freed 'Big Beat' 60s Poster",
+    "category": "music",
+    "sub": "gig-posters",
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Black frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/alan-freed-big-beat.jpg",
+        "source": "60s Poster 500x700mm.jpg",
+        "width": 1148,
+        "height": 1600
+      }
+    ],
+    "alt": "Alan Freed — The Big Beat — framed print",
+    "note": "",
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "portrait"
+  },
+  {
+    "id": "bath-festival",
+    "slug": "bath-festival",
+    "title": "Bath Festival",
+    "listName": "Bath Festival Poster",
+    "category": "music",
+    "sub": "gig-posters",
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Black frame, white mount",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/bath-festival.jpg",
+        "source": "Bath Festival Poster 500x700mm.jpg",
+        "width": 1152,
+        "height": 1600
+      }
+    ],
+    "alt": "Bath Festival — framed print",
+    "note": "A recreation of the event poster, in a similar style to the original.",
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "portrait"
+  },
+  {
+    "id": "beatles-60s-cartoon",
+    "slug": "beatles-60s-cartoon",
+    "title": "Beatles 60s Cartoon",
+    "listName": "Beatles 60s Cartoon",
+    "category": "music",
+    "sub": "records-promo",
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Silver frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/beatles-60s-cartoon.jpg",
+        "source": "Beatles 60s Cartoon 500x700mm.jpg",
+        "width": 1148,
+        "height": 1600
+      }
+    ],
+    "alt": "Beatles 60s Cartoon — framed print",
+    "note": "",
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "portrait"
+  },
+  {
+    "id": "the-rat-pack",
+    "slug": "the-rat-pack",
+    "title": "The Rat Pack",
+    "listName": "Rat Pack Poster",
+    "category": "music",
+    "sub": "records-promo",
+    "options": [
+      {
+        "size": "508 × 508mm",
+        "frame": "Black frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/the-rat-pack.jpg",
+        "source": "Rat Pack Poster 508 x 508 mm.jpg",
+        "width": 1600,
+        "height": 1600
+      }
+    ],
+    "alt": "The Rat Pack — framed print",
+    "note": "A recreation of a record promo in the mid-century style.",
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "square"
+  },
+  {
+    "id": "the-clash-london-calling",
+    "slug": "the-clash-london-calling",
+    "title": "The Clash — London Calling",
+    "listName": "The Clash Poster London Calling",
+    "category": "music",
+    "sub": "records-promo",
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Black frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/the-clash-london-calling.jpg",
+        "source": "The Clash London Calling 500x700mm.jpg",
+        "width": 1138,
+        "height": 1600
+      }
+    ],
+    "alt": "The Clash — London Calling — framed print",
+    "note": "",
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "portrait"
+  },
+  {
+    "id": "for-the-benefit-of-mr-kite",
+    "slug": "for-the-benefit-of-mr-kite",
+    "title": "For the Benefit of Mr Kite",
+    "listName": "For the Benefit of Mr Kite Poster",
+    "category": "music",
+    "sub": "records-promo",
+    "options": [
+      {
+        "size": "280 × 550mm",
+        "frame": "Black frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/for-the-benefit-of-mr-kite.jpg",
+        "source": "Mr Kite Poster 230 x 500mm.jpg",
+        "width": 752,
+        "height": 1600
+      }
+    ],
+    "alt": "For the Benefit of Mr Kite — framed print",
+    "note": "A reproduction of the original poster that inspired John Lennon to write the song, from Sgt. Pepper's Lonely Hearts Club Band (1967).",
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "tall"
+  },
+  {
+    "id": "stones-no-filter-poster-1",
+    "slug": "stones-no-filter-poster-1",
+    "title": "Stones No Filter — Poster 1",
+    "listName": "Stones No Filter Poster 1",
+    "category": "music",
+    "sub": "stones-no-filter",
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Black frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/stones-no-filter-poster-1.jpg",
@@ -708,25 +917,25 @@
     ],
     "alt": "Stones No Filter — Poster 1 — framed print",
     "note": "From the No Filter tour, 2017.",
-    "needs": [
-      "price"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "stones-no-filter-europe",
     "slug": "stones-no-filter-europe",
     "title": "Stones No Filter — Europe",
+    "listName": "Stones No Filter Europe 2",
     "category": "music",
-    "sub": "gig-posters",
+    "sub": "stones-no-filter",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/stones-no-filter-europe.jpg",
@@ -737,25 +946,25 @@
     ],
     "alt": "Stones No Filter — Europe — framed print",
     "note": "From the No Filter tour, 2017.",
-    "needs": [
-      "price"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "stones-no-filter-square",
     "slug": "stones-no-filter-square",
     "title": "Stones No Filter — Square",
+    "listName": "Stones No Filter Poster (Square)",
     "category": "music",
-    "sub": "gig-posters",
+    "sub": "stones-no-filter",
     "options": [
       {
         "size": "500 × 500mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/stones-no-filter-square.jpg",
@@ -766,21 +975,57 @@
     ],
     "alt": "Stones No Filter — Square — framed print",
     "note": "From the No Filter tour, 2017.",
-    "needs": [
-      "price"
+    "queries": [
+      "Same name as 'Poster 1' in source - distinguished here by size only"
     ],
+    "mergedFrom": [],
     "shape": "square"
   },
   {
-    "id": "cabaret",
-    "slug": "cabaret",
-    "title": "Cabaret",
+    "id": "a-hard-days-night",
+    "slug": "a-hard-days-night",
+    "title": "A Hard Day's Night",
+    "listName": "Beatles 'A Hard Day's Night' Film Poster",
     "category": "screen-stage",
     "sub": "film",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Silver frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/a-hard-days-night.jpg",
+        "source": "Hard Days Night Poster 500x700mm.jpg",
+        "width": 1126,
+        "height": 1600
+      }
+    ],
+    "alt": "A Hard Day's Night — framed print",
+    "note": "A recreation of the original film poster.",
+    "queries": [
+      "Possible duplicate of Beatles 'A Hard Day's Night' Film Poster listed under Film",
+      "Possible duplicate of Hard Day's Night Poster listed under Music"
+    ],
+    "mergedFrom": [
+      "Hard Day's Night Poster"
+    ],
+    "shape": "portrait"
+  },
+  {
+    "id": "cabaret",
+    "slug": "cabaret",
+    "title": "Cabaret",
+    "listName": "Cabaret Poster",
+    "category": "screen-stage",
+    "sub": "film",
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -795,19 +1040,21 @@
     ],
     "alt": "Cabaret — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "the-blues-brothers",
     "slug": "the-blues-brothers",
     "title": "The Blues Brothers",
+    "listName": "Blues Brothers Poster",
     "category": "screen-stage",
     "sub": "film",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -822,19 +1069,21 @@
     ],
     "alt": "The Blues Brothers — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "a-clockwork-orange-film-poster-1",
     "slug": "a-clockwork-orange-film-poster-1",
     "title": "A Clockwork Orange — Film Poster 1",
+    "listName": "Clockwork Orange Film Poster 1",
     "category": "screen-stage",
     "sub": "film",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -849,24 +1098,28 @@
     ],
     "alt": "A Clockwork Orange — Film Poster 1 — framed print",
     "note": "",
-    "needs": [],
+    "queries": [
+      "Same size as Film Poster 2 but £5 dearer - confirm"
+    ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "reservoir-dogs",
     "slug": "reservoir-dogs",
     "title": "Reservoir Dogs",
+    "listName": "Reservoir Dogs",
     "category": "screen-stage",
     "sub": "film",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       },
       {
         "size": "594 × 841mm",
-        "frame": "Framed",
+        "frame": "Silver frame",
         "price": 40
       }
     ],
@@ -881,19 +1134,21 @@
     ],
     "alt": "Reservoir Dogs — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "a-clockwork-orange-film-poster-2",
     "slug": "a-clockwork-orange-film-poster-2",
     "title": "A Clockwork Orange — Film Poster 2",
+    "listName": "Clockwork Orange Film Poster 2",
     "category": "screen-stage",
     "sub": "film",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 30
       }
     ],
@@ -908,23 +1163,27 @@
     ],
     "alt": "A Clockwork Orange — Film Poster 2 — framed print",
     "note": "",
-    "needs": [],
+    "queries": [
+      "Same size as Film Poster 1 but £5 cheaper - confirm"
+    ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "holborn-empire",
     "slug": "holborn-empire",
     "title": "Holborn Empire",
+    "listName": "Holborn Poster",
     "category": "screen-stage",
     "sub": "theatre",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/holborn-empire.jpg",
@@ -935,25 +1194,25 @@
     ],
     "alt": "Holborn Empire — framed print",
     "note": "A recreation of an old theatre poster.",
-    "needs": [
-      "price"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "vaudeville",
     "slug": "vaudeville",
     "title": "Vaudeville",
+    "listName": "Vaudeville Poster",
     "category": "screen-stage",
     "sub": "theatre",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/vaudeville.jpg",
@@ -964,21 +1223,21 @@
     ],
     "alt": "Vaudeville — framed print",
     "note": "",
-    "needs": [
-      "price"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "beyond-the-fringe",
     "slug": "beyond-the-fringe",
     "title": "Beyond the Fringe",
+    "listName": "Beyond The Fringe Broadway Show",
     "category": "screen-stage",
     "sub": "theatre",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -993,19 +1252,21 @@
     ],
     "alt": "Beyond the Fringe — framed print",
     "note": "A recreation for the Broadway run, 1962–64.",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "frank-sinatra-london-palladium",
     "slug": "frank-sinatra-london-palladium",
     "title": "Frank Sinatra — London Palladium",
+    "listName": "Frank Sinatra London Palladium",
     "category": "screen-stage",
     "sub": "theatre",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1020,19 +1281,21 @@
     ],
     "alt": "Frank Sinatra — London Palladium — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "les-mis-rables",
     "slug": "les-mis-rables",
     "title": "Les Misérables",
+    "listName": "Les Mis Poster",
     "category": "screen-stage",
     "sub": "theatre",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1047,19 +1310,23 @@
     ],
     "alt": "Les Misérables — framed print",
     "note": "A recreation in the style of the original.",
-    "needs": [],
+    "queries": [
+      "Description incomplete in source ('in the style of ...')"
+    ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "max-miller-london-palladium",
     "slug": "max-miller-london-palladium",
     "title": "Max Miller — London Palladium",
+    "listName": "Max Miller Poster London Palladium",
     "category": "screen-stage",
     "sub": "theatre",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1074,48 +1341,54 @@
     ],
     "alt": "Max Miller — London Palladium — framed print",
     "note": "",
-    "needs": [
-      "moved-from-books"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "west-side-story",
     "slug": "west-side-story",
     "title": "West Side Story",
+    "listName": "West Side Story",
     "category": "screen-stage",
     "sub": "theatre",
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Silver frame",
         "price": 35
       }
     ],
     "priceFrom": 35,
-    "images": [],
+    "images": [
+      {
+        "src": "/assets/img/prints/west-side-story.jpg",
+        "source": "West Side Story Poster New 500x700mm.jpg",
+        "width": 1139,
+        "height": 1600
+      }
+    ],
     "alt": "West Side Story — framed print",
     "note": "",
-    "needs": [
-      "image",
-      "moved-from-books"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "1984-book-cover",
     "slug": "1984-book-cover",
     "title": "1984 — Book Cover",
-    "category": "books-comics",
-    "sub": "book-covers",
+    "listName": "1984 Cover (3 versions)",
+    "category": "book-covers",
+    "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": 30
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": 30,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/1984-book-cover.jpg",
@@ -1126,19 +1399,23 @@
     ],
     "alt": "1984 — Book Cover — framed print",
     "note": "A recreation of the book cover. One of three versions.",
-    "needs": [],
+    "queries": [
+      "Priced '£30/£35' - unclear which version is which price; versions not named; frame colour not stated"
+    ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "1984-eye",
     "slug": "1984-eye",
     "title": "1984 — Eye",
-    "category": "books-comics",
-    "sub": "book-covers",
+    "listName": "1984 Cover (3 versions)",
+    "category": "book-covers",
+    "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1153,19 +1430,23 @@
     ],
     "alt": "1984 — Eye — framed print",
     "note": "A recreation of the book cover. One of three versions.",
-    "needs": [],
+    "queries": [
+      "Priced '£30/£35' - unclear which version is which price; versions not named; frame colour not stated"
+    ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "1984-poster",
     "slug": "1984-poster",
     "title": "1984 — Poster",
-    "category": "books-comics",
-    "sub": "book-covers",
+    "listName": "1984 Cover (3 versions)",
+    "category": "book-covers",
+    "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1180,19 +1461,23 @@
     ],
     "alt": "1984 — Poster — framed print",
     "note": "A recreation of the book cover. One of three versions.",
-    "needs": [],
+    "queries": [
+      "Priced '£30/£35' - unclear which version is which price; versions not named; frame colour not stated"
+    ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "1984-tv-poster",
     "slug": "1984-tv-poster",
     "title": "1984 — TV Poster",
-    "category": "books-comics",
-    "sub": "book-covers",
+    "listName": "1984 TV Poster",
+    "category": "book-covers",
+    "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Black",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1207,15 +1492,17 @@
     ],
     "alt": "1984 — TV Poster — framed print",
     "note": "An original design.",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "animal-farm",
     "slug": "animal-farm",
     "title": "Animal Farm",
-    "category": "books-comics",
-    "sub": "book-covers",
+    "listName": "Animal Farm",
+    "category": "book-covers",
+    "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
@@ -1234,19 +1521,23 @@
     ],
     "alt": "Animal Farm — framed print",
     "note": "A recreation of the book cover.",
-    "needs": [],
+    "queries": [
+      "Frame colour not stated"
+    ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "brave-new-world",
     "slug": "brave-new-world",
     "title": "Brave New World",
-    "category": "books-comics",
-    "sub": "book-covers",
+    "listName": "Brave New World",
+    "category": "book-covers",
+    "sub": null,
     "options": [
       {
-        "size": "500 × 700mm",
-        "frame": "Black",
+        "size": "594 × 841mm",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1261,21 +1552,23 @@
     ],
     "alt": "Brave New World — framed print",
     "note": "An amended Penguin book cover.",
-    "needs": [
-      "size"
+    "queries": [
+      "Size typed as '5594mmx841mm' - assumed 594 x 841 mm; price low for this size (others £40-£45)"
     ],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "a-clockwork-orange-book-cover",
     "slug": "a-clockwork-orange-book-cover",
     "title": "A Clockwork Orange — Book Cover",
-    "category": "books-comics",
-    "sub": "book-covers",
+    "listName": "A Clockwork Orange Book Cover",
+    "category": "book-covers",
+    "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Black",
+        "frame": "Black frame",
         "price": 25
       }
     ],
@@ -1290,61 +1583,27 @@
     ],
     "alt": "A Clockwork Orange — Book Cover — framed print",
     "note": "",
-    "needs": [],
-    "shape": "portrait"
-  },
-  {
-    "id": "desperate-dan",
-    "slug": "desperate-dan",
-    "title": "Desperate Dan",
-    "category": "books-comics",
-    "sub": "comics",
-    "options": [
-      {
-        "size": "700 × 1000mm",
-        "frame": "White",
-        "price": 45
-      },
-      {
-        "size": "500 × 700mm",
-        "frame": "White",
-        "price": 35
-      }
+    "queries": [
+      "Price check: £25 is lowest for a framed 500 x 700 mm"
     ],
-    "priceFrom": 35,
-    "images": [
-      {
-        "src": "/assets/img/prints/desperate-dan.jpg",
-        "source": "Desperate Dan Poster 700x1000mm.jpg",
-        "width": 1129,
-        "height": 1600
-      },
-      {
-        "src": "/assets/img/prints/desperate-dan-2.jpg",
-        "source": "Desperate Dan Poster 500 x 700mm.jpg",
-        "width": 1129,
-        "height": 1600
-      }
-    ],
-    "alt": "Desperate Dan — framed print",
-    "note": "",
-    "needs": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "brad-darling",
     "slug": "brad-darling",
     "title": "Brad Darling",
+    "listName": "Brad Darling Poster",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "500 × 500mm",
-        "frame": "Framed",
-        "price": 5
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": 5,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/brad-darling.jpg",
@@ -1355,21 +1614,21 @@
     ],
     "alt": "Brad Darling — framed print",
     "note": "",
-    "needs": [
-      "price"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "square"
   },
   {
     "id": "go-to-him-mandy",
     "slug": "go-to-him-mandy",
     "title": "Go To Him Mandy!",
+    "listName": "Go To Him Mandy!",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "500 × 500mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1384,19 +1643,21 @@
     ],
     "alt": "Go To Him Mandy! — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "square"
   },
   {
     "id": "whaam",
     "slug": "whaam",
     "title": "Whaam!",
+    "listName": "'Whaam!' Poster (Diptych)",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "400 × 500mm",
-        "frame": "Framed",
+        "frame": "Silver frame",
         "price": 40
       }
     ],
@@ -1417,19 +1678,23 @@
     ],
     "alt": "Whaam! — framed print",
     "note": "Two images, hung as a diptych.",
-    "needs": [],
+    "queries": [
+      "Unclear if size is per panel or overall"
+    ],
+    "mergedFrom": [],
     "shape": "landscape"
   },
   {
     "id": "oh-jeff",
     "slug": "oh-jeff",
     "title": "Oh! Jeff",
+    "listName": "Oh! Jeff Poster",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "508 × 508mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1444,19 +1709,21 @@
     ],
     "alt": "Oh! Jeff — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "square"
   },
   {
     "id": "i-forgot-to-have-babies",
     "slug": "i-forgot-to-have-babies",
     "title": "I Forgot to Have Babies",
+    "listName": "Girl Crying - 'I forgot to have babies'",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Silver frame",
         "price": 35
       }
     ],
@@ -1471,19 +1738,21 @@
     ],
     "alt": "I Forgot to Have Babies — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "give-up-dick",
     "slug": "give-up-dick",
     "title": "Give Up Dick",
+    "listName": "Give Up Dick Picture",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "500 × 500mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1498,23 +1767,25 @@
     ],
     "alt": "Give Up Dick — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "square"
   },
   {
     "id": "summer-was-a-blur-of-tears",
     "slug": "summer-was-a-blur-of-tears",
     "title": "Summer Was a Blur of Tears",
+    "listName": "Summer Blur of Tears",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Silver frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/summer-was-a-blur-of-tears.jpg",
@@ -1525,8 +1796,12 @@
     ],
     "alt": "Summer Was a Blur of Tears — framed print",
     "note": "",
-    "needs": [
-      "price"
+    "queries": [
+      "PRICE MISSING. Possible duplicate of 'Summer Blur of Tears' (£35)",
+      "Possible duplicate of Girl Crying - 'Summer was a blur of tears'"
+    ],
+    "mergedFrom": [
+      "Girl Crying - 'Summer was a blur of tears'"
     ],
     "shape": "portrait"
   },
@@ -1534,12 +1809,13 @@
     "id": "superwoman",
     "slug": "superwoman",
     "title": "Superwoman",
+    "listName": "Superwoman",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "594 × 841mm",
-        "frame": "Black",
+        "frame": "Black frame",
         "price": 45
       }
     ],
@@ -1554,23 +1830,25 @@
     ],
     "alt": "Superwoman — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "satisfaction",
     "slug": "satisfaction",
     "title": "Satisfaction",
+    "listName": "'Satisfaction' - Original Artwork Creation",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "508 × 508mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/satisfaction.jpg",
@@ -1581,25 +1859,27 @@
     ],
     "alt": "Satisfaction — framed print",
     "note": "An original artwork creation.",
-    "needs": [
-      "price"
+    "queries": [
+      "PRICE MISSING"
     ],
+    "mergedFrom": [],
     "shape": "square"
   },
   {
     "id": "the-kiss",
     "slug": "the-kiss",
     "title": "The Kiss",
+    "listName": "The Kiss",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "500 × 500mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Black frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/the-kiss.jpg",
@@ -1610,21 +1890,21 @@
     ],
     "alt": "The Kiss — framed print",
     "note": "",
-    "needs": [
-      "price"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "square"
   },
   {
     "id": "oh-i-couldnt",
     "slug": "oh-i-couldnt",
     "title": "Oh, I Couldn't",
+    "listName": "'If your promise...' Oh I Couldn't",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "500 × 500mm",
-        "frame": "Black",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1635,31 +1915,27 @@
         "source": "Oh I Coudn't 500x500mm.jpg",
         "width": 1596,
         "height": 1600
-      },
-      {
-        "src": "/assets/img/prints/oh-i-couldnt-2.jpg",
-        "source": "Oh! I coudn't 2.jpg",
-        "width": 1027,
-        "height": 1070
       }
     ],
     "alt": "Oh, I Couldn't — framed print",
-    "note": "“If your promise…”",
-    "needs": [
-      "which-image"
+    "note": "“If your promise means that much, then give up Dick!”",
+    "queries": [
+      "Source spelling 'Coudn't' corrected"
     ],
+    "mergedFrom": [],
     "shape": "square"
   },
   {
     "id": "nurse",
     "slug": "nurse",
     "title": "Nurse",
+    "listName": "Nurse - 'Just another day pretending to be normal'",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "500 × 500mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1670,35 +1946,29 @@
         "source": "Nurse 500 x 500.jpg",
         "width": 1600,
         "height": 1588
-      },
-      {
-        "src": "/assets/img/prints/nurse-2.jpg",
-        "source": "Lichtenstein Nurse Caption 508x508.jpg",
-        "width": 1595,
-        "height": 1600
       }
     ],
     "alt": "Nurse — framed print",
     "note": "“Just another day pretending to be normal.”",
-    "needs": [
-      "which-image"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "square"
   },
   {
     "id": "sweet-dreams-baby",
     "slug": "sweet-dreams-baby",
     "title": "Sweet Dreams Baby",
+    "listName": "'Sweet Dreams Baby'",
     "category": "pop-art",
-    "sub": "lichtenstein",
+    "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Silver frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/sweet-dreams-baby.jpg",
@@ -1709,21 +1979,50 @@
     ],
     "alt": "Sweet Dreams Baby — framed print",
     "note": "",
-    "needs": [
-      "price"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
+  },
+  {
+    "id": "woman-wow",
+    "slug": "woman-wow",
+    "title": "Woman Wow!",
+    "listName": "Woman Wow!",
+    "category": "pop-art",
+    "sub": null,
+    "options": [
+      {
+        "size": "508 × 508mm",
+        "frame": "Black frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/woman-wow.jpg",
+        "source": "Woman Wow! 508x508mm.jpg",
+        "width": 1600,
+        "height": 1600
+      }
+    ],
+    "alt": "Woman Wow! — framed print",
+    "note": "",
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "square"
   },
   {
     "id": "mickey-mouse-boom",
     "slug": "mickey-mouse-boom",
     "title": "Mickey Mouse BOOM!",
-    "category": "pop-art",
-    "sub": "other",
+    "listName": "Mickey Mouse BOOM!",
+    "category": "miscellaneous",
+    "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
+        "frame": "Black frame",
         "price": 35
       }
     ],
@@ -1738,160 +2037,25 @@
     ],
     "alt": "Mickey Mouse BOOM! — framed print",
     "note": "A vintage recreation.",
-    "needs": [],
-    "shape": "portrait"
-  },
-  {
-    "id": "keith-haring",
-    "slug": "keith-haring",
-    "title": "Keith Haring",
-    "category": "pop-art",
-    "sub": "other",
-    "options": [
-      {
-        "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": 35
-      }
-    ],
-    "priceFrom": 35,
-    "images": [
-      {
-        "src": "/assets/img/prints/keith-haring.jpg",
-        "source": "Keith Haring 500 x 700mm.jpg",
-        "width": 1115,
-        "height": 1600
-      }
-    ],
-    "alt": "Keith Haring — framed print",
-    "note": "An amalgam.",
-    "needs": [],
-    "shape": "portrait"
-  },
-  {
-    "id": "batman",
-    "slug": "batman",
-    "title": "Batman",
-    "category": "pop-art",
-    "sub": "super-heroes",
-    "options": [
-      {
-        "size": "400 × 500mm",
-        "frame": "Framed",
-        "price": 25
-      }
-    ],
-    "priceFrom": 25,
-    "images": [],
-    "alt": "Batman — framed print",
-    "note": "",
-    "needs": [
-      "image"
-    ],
-    "shape": "portrait"
-  },
-  {
-    "id": "robin",
-    "slug": "robin",
-    "title": "Robin",
-    "category": "pop-art",
-    "sub": "super-heroes",
-    "options": [
-      {
-        "size": "400 × 500mm",
-        "frame": "Framed",
-        "price": 25
-      }
-    ],
-    "priceFrom": 25,
-    "images": [],
-    "alt": "Robin — framed print",
-    "note": "",
-    "needs": [
-      "image"
-    ],
-    "shape": "portrait"
-  },
-  {
-    "id": "the-joker",
-    "slug": "the-joker",
-    "title": "The Joker",
-    "category": "pop-art",
-    "sub": "super-heroes",
-    "options": [
-      {
-        "size": "400 × 500mm",
-        "frame": "Framed",
-        "price": 25
-      }
-    ],
-    "priceFrom": 25,
-    "images": [],
-    "alt": "The Joker — framed print",
-    "note": "",
-    "needs": [
-      "image"
-    ],
-    "shape": "portrait"
-  },
-  {
-    "id": "superman",
-    "slug": "superman",
-    "title": "Superman",
-    "category": "pop-art",
-    "sub": "super-heroes",
-    "options": [
-      {
-        "size": "400 × 500mm",
-        "frame": "Framed",
-        "price": 25
-      }
-    ],
-    "priceFrom": 25,
-    "images": [],
-    "alt": "Superman — framed print",
-    "note": "",
-    "needs": [
-      "image"
-    ],
-    "shape": "portrait"
-  },
-  {
-    "id": "wonder-woman",
-    "slug": "wonder-woman",
-    "title": "Wonder Woman",
-    "category": "pop-art",
-    "sub": "super-heroes",
-    "options": [
-      {
-        "size": "400 × 500mm",
-        "frame": "Framed",
-        "price": 25
-      }
-    ],
-    "priceFrom": 25,
-    "images": [],
-    "alt": "Wonder Woman — framed print",
-    "note": "",
-    "needs": [
-      "image"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "che",
     "slug": "che",
     "title": "Che",
-    "category": "vintage",
+    "listName": "Che Poster",
+    "category": "miscellaneous",
     "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Silver",
-        "price": null
+        "frame": "Silver frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/che.jpg",
@@ -1902,25 +2066,25 @@
     ],
     "alt": "Che — framed print",
     "note": "",
-    "needs": [
-      "price"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "beatles-tickets",
     "slug": "beatles-tickets",
     "title": "Beatles Tickets",
-    "category": "vintage",
+    "listName": "Beatles Tickets",
+    "category": "miscellaneous",
     "sub": null,
     "options": [
       {
         "size": "203 × 508mm",
-        "frame": "Black",
-        "price": null
+        "frame": "Black frame",
+        "price": 25
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 25,
     "images": [
       {
         "src": "/assets/img/prints/beatles-tickets.jpg",
@@ -1937,22 +2101,61 @@
     ],
     "alt": "Beatles Tickets — framed print",
     "note": "A recreation of two tickets — Indiana 1964 and Washington 1966.",
-    "needs": [
-      "price",
-      "one-or-two-products"
-    ],
+    "queries": [],
+    "mergedFrom": [],
     "shape": "landscape"
+  },
+  {
+    "id": "desperate-dan",
+    "slug": "desperate-dan",
+    "title": "Desperate Dan",
+    "listName": "Desperate Dan Poster",
+    "category": "miscellaneous",
+    "sub": null,
+    "options": [
+      {
+        "size": "700 × 1000mm",
+        "frame": "White frame",
+        "price": 45
+      },
+      {
+        "size": "500 × 700mm",
+        "frame": "White frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/desperate-dan.jpg",
+        "source": "Desperate Dan Poster 700x1000mm.jpg",
+        "width": 1129,
+        "height": 1600
+      },
+      {
+        "src": "/assets/img/prints/desperate-dan-2.jpg",
+        "source": "Desperate Dan Poster 500 x 700mm.jpg",
+        "width": 1129,
+        "height": 1600
+      }
+    ],
+    "alt": "Desperate Dan — framed print",
+    "note": "",
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "portrait"
   },
   {
     "id": "i-love-vintage",
     "slug": "i-love-vintage",
     "title": "I Love Vintage",
-    "category": "vintage",
+    "listName": "I Love Vintage",
+    "category": "miscellaneous",
     "sub": null,
     "options": [
       {
         "size": "600 × 800mm",
-        "frame": "Gold",
+        "frame": "Gold frame",
         "price": 45
       }
     ],
@@ -1967,23 +2170,54 @@
     ],
     "alt": "I Love Vintage — framed print",
     "note": "",
-    "needs": [],
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "portrait"
+  },
+  {
+    "id": "keith-haring",
+    "slug": "keith-haring",
+    "title": "Keith Haring",
+    "listName": "Keith Haring Amalgam",
+    "category": "miscellaneous",
+    "sub": null,
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Black frame",
+        "price": 35
+      }
+    ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/keith-haring.jpg",
+        "source": "Keith Haring 500 x 700mm.jpg",
+        "width": 1115,
+        "height": 1600
+      }
+    ],
+    "alt": "Keith Haring — framed print",
+    "note": "An amalgam.",
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   },
   {
     "id": "pin-up",
     "slug": "pin-up",
     "title": "Pin-Up",
-    "category": "vintage",
+    "listName": "Pin-Up Poster",
+    "category": "miscellaneous",
     "sub": null,
     "options": [
       {
         "size": "500 × 700mm",
-        "frame": "Framed",
-        "price": null
+        "frame": "Silver frame",
+        "price": 35
       }
     ],
-    "priceFrom": null,
+    "priceFrom": 35,
     "images": [
       {
         "src": "/assets/img/prints/pin-up.jpg",
@@ -1994,9 +2228,37 @@
     ],
     "alt": "Pin-Up — framed print",
     "note": "A recreation of a 50s magazine cover.",
-    "needs": [
-      "price"
+    "queries": [],
+    "mergedFrom": [],
+    "shape": "portrait"
+  },
+  {
+    "id": "skegness",
+    "slug": "skegness",
+    "title": "Skegness — It’s So Bracing",
+    "listName": "Skegness 'It's so Bracing'",
+    "category": "miscellaneous",
+    "sub": null,
+    "options": [
+      {
+        "size": "500 × 700mm",
+        "frame": "Black frame",
+        "price": 35
+      }
     ],
+    "priceFrom": 35,
+    "images": [
+      {
+        "src": "/assets/img/prints/skegness.jpg",
+        "source": "Skegness 500x700mm.jpg",
+        "width": 1135,
+        "height": 1600
+      }
+    ],
+    "alt": "Skegness — It’s So Bracing — framed print",
+    "note": "",
+    "queries": [],
+    "mergedFrom": [],
     "shape": "portrait"
   }
 ]
