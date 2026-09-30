@@ -6,8 +6,8 @@ pagination:
   alias: category
 permalink: "/{{ category.slug }}/"
 eleventyComputed:
-  title: "{{ category.title }}"
-  description: "{{ category.description }}"
+  title: "{{ category.title | safe }}"
+  description: "{{ category.description | safe }}"
   ink: "{{ category.ink }}"
 ---
 {% set inCategory = prints | byCategory(category.slug) %}

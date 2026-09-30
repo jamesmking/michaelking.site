@@ -6,8 +6,8 @@ pagination:
   alias: print
 permalink: "/prints/{{ print.slug }}/"
 eleventyComputed:
-  title: "{{ print.title }}"
-  description: "{{ print.note or print.title }}"
+  title: "{{ print.title | safe }}"
+  description: "{{ (print.note or print.title) | safe }}"
   ink: "{{ (categories | find('slug', print.category)).ink }}"
 ---
 {% set category = categories | find("slug", print.category) %}
